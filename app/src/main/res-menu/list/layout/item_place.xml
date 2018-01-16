@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="place"
+            type="com.yoesuv.networkkotlin2.menu.listplace.viewmodels.ItemPlaceViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layoutItemPlace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/layout_item_place_padding"
+        android:paddingRight="@dimen/layout_item_place_padding"
+        android:paddingBottom="@dimen/layout_item_place_padding">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/imgListPlace"
+            android:layout_width="@dimen/img_list_place_size"
+            android:layout_height="@dimen/img_list_place_size" />
+
+        <RelativeLayout
+            android:id="@+id/layoutTextItemPlace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imgListPlace"
+            android:layout_toEndOf="@+id/imgListPlace"
+            android:paddingLeft="@dimen/layout_text_list_place_padding"
+            android:paddingRight="@dimen/layout_text_list_place_padding"
+            android:layout_centerVertical="true">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{place.name}"
+                android:textSize="@dimen/text_title_list_place_size"
+                android:textStyle="bold"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/textLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{place.location}"
+                android:textSize="@dimen/text_location_list_place_size"
+                android:layout_below="@+id/textTitle"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

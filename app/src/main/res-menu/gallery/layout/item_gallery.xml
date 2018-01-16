@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="gallery"
+            type="com.yoesuv.networkkotlin2.menu.gallery.viewmodels.ItemGalleryViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layoutItemGallery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp">
+
+        <com.yoesuv.networkkotlin2.widgets.SquareImageView
+            android:id="@+id/imgItemGallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+</layout>

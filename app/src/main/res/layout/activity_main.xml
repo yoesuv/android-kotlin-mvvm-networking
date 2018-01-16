@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="main"
+            type="com.yoesuv.networkkotlin2.main.viewmodels.MainViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".main.views.MainActivity">
+
+        <include
+            android:id="@+id/toolbar_main"
+            layout="@layout/toolbar_top"/>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/main_padding"
+                android:paddingRight="@dimen/main_padding">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/buttonOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/main_padding"
+                    android:text="@string/list_wisata"
+                    android:textColor="@drawable/button_text_selector"
+                    android:theme="@style/buttonPrimaryTheme"
+                    android:onClick="@{main::clikListWisata}"/>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/buttonTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/main_padding"
+                    android:text="@string/gallery_wisata"
+                    android:textColor="@drawable/button_text_selector"
+                    android:theme="@style/buttonPrimaryTheme"
+                    android:onClick="@{main::clickGalleryWisata}"/>
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</layout>
