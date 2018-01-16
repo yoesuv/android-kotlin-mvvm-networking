@@ -1,1 +1,2 @@
-# android-kotlin-mvvm-networking
+# Android Kotlin Simple Networking #
+### use RxJava & Retrofit ###
