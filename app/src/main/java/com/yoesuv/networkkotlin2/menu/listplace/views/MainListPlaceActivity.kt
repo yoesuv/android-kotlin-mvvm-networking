@@ -44,6 +44,11 @@ class MainListPlaceActivity : AppCompatActivity(), IvListPlaceRepository {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onDestroy() {
+        listPlaceViewModel.onDestroy()
+        super.onDestroy()
+    }
+
     private fun setupBinding(){
         listPlaceBinding = DataBindingUtil.setContentView(this, R.layout.activity_list)
         listPlaceViewModel = MainListPlaceViewModel(this)
