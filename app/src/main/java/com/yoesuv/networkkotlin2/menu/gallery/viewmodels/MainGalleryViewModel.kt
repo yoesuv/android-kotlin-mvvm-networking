@@ -6,6 +6,7 @@ import com.yoesuv.networkkotlin2.menu.gallery.models.GalleryModel
 import com.yoesuv.networkkotlin2.networks.GalleryResponse
 import com.yoesuv.networkkotlin2.networks.ResponseRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -14,6 +15,7 @@ import io.reactivex.schedulers.Schedulers
 class MainGalleryViewModel(private val ivListGalleryRepository: IvListGalleryRepository) : BaseViewModel {
 
     private val galleryResponse:GalleryResponse = ResponseRepository.provideListGalleryRepository()
+    private val compositeDisposable:CompositeDisposable = CompositeDisposable()
 
     override fun onCreate() {
         requestListGallery()
@@ -28,15 +30,17 @@ class MainGalleryViewModel(private val ivListGalleryRepository: IvListGalleryRep
     }
 
     override fun onDestroy() {
-
+        compositeDisposable.clear()
     }
 
     fun requestListGallery(){
-        galleryResponse.getListGallery()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe({
-                    t: GalleryModel? -> ivListGalleryRepository.onGetListGallerySuccess(t!!)
-                }, { _: Throwable? ->  ivListGalleryRepository.onGetListGalleryError() })
+        compositeDisposable.add(
+            galleryResponse.getListGallery()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe({
+                        t: GalleryModel? -> ivListGalleryRepository.onGetListGallerySuccess(t!!)
+                    }, { _: Throwable? ->  ivListGalleryRepository.onGetListGalleryError() })
+        )
     }
 }

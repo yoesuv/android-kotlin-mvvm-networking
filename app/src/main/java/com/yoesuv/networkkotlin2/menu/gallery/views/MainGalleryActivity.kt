@@ -44,6 +44,11 @@ class MainGalleryActivity : AppCompatActivity(), IvListGalleryRepository {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onDestroy() {
+        galleryViewModel.onDestroy()
+        super.onDestroy()
+    }
+
     private fun setupBinding(){
         galleryBinding = DataBindingUtil.setContentView(this, R.layout.activity_gallery)
         galleryViewModel = MainGalleryViewModel(this)
