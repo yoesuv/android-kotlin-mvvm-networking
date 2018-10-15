@@ -6,11 +6,11 @@ package com.yoesuv.networkkotlin2.networks
 object ResponseRepository {
 
     fun provideListPlaceRepository():ListPlaceResponse{
-        return ListPlaceResponse(RestApi.Factory.create())
+        return ListPlaceResponse(ServiceFactory.create())
     }
 
     fun provideListGalleryRepository():GalleryResponse{
-        return GalleryResponse(RestApi.Factory.create())
+        return GalleryResponse(ServiceFactory.create())
     }
 
 }
