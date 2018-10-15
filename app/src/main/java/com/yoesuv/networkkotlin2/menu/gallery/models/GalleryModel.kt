@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 class GalleryModel(
 
         @Expose @SerializedName("status_code") val statusCode:Int,
-        @Expose @SerializedName("data") val listData:List<Gallery>){
+        @Expose @SerializedName("data") val listData:MutableList<Gallery>){
 
     class Gallery(
             @Expose @SerializedName("caption") val caption:String,
