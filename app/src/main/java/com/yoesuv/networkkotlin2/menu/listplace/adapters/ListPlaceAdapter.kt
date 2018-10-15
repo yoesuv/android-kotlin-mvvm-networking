@@ -21,14 +21,14 @@ class ListPlaceAdapter(activity:Activity, private var mutableList: MutableList<L
         return mutableList.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): PlaceViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaceViewHolder {
         val binding:ItemPlaceBinding = DataBindingUtil.inflate(inflater, R.layout.item_place, parent, false)
         return PlaceViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: PlaceViewHolder?, position: Int) {
-        val fixPosition = holder?.adapterPosition
-        holder?.bindBinding(mutableList[fixPosition!!])
+    override fun onBindViewHolder(holder: PlaceViewHolder, position: Int) {
+        val fixPosition = holder.adapterPosition
+        holder.bindBinding(mutableList[fixPosition])
     }
 
     fun addData(mutableList: MutableList<ListPlaceModel.Place>){
