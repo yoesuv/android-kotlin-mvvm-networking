@@ -41,7 +41,7 @@ class GalleryAdapter(activity: Activity, private var listGallery:MutableList<Gal
         private val itemGalleryBinding:ItemGalleryBinding = itemView
 
         fun bindBinding(model:GalleryModel.Gallery){
-            val itemGalleryViewModel = ItemGalleryViewModel(model, itemGalleryBinding)
+            val itemGalleryViewModel = ItemGalleryViewModel(model)
             itemGalleryBinding.gallery = itemGalleryViewModel
         }
 

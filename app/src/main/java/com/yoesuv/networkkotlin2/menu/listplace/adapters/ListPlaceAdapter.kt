@@ -41,7 +41,7 @@ class ListPlaceAdapter(activity:Activity, private var listPlace: MutableList<Lis
         private val placeBinding:ItemPlaceBinding = itemView
 
         fun bindBinding(model: ListPlaceModel.Place){
-            val placeViewModel = ItemPlaceViewModel(model, placeBinding)
+            val placeViewModel = ItemPlaceViewModel(model)
             placeBinding.place = placeViewModel
         }
 
