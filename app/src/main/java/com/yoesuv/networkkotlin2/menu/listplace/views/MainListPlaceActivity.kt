@@ -1,10 +1,12 @@
 package com.yoesuv.networkkotlin2.menu.listplace.views
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
+import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.view.LayoutInflater
 import android.view.MenuItem
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityListBinding
@@ -13,12 +15,12 @@ import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.MainListPlaceViewModel
 
 /**
- *  Created by yusuf on 1/13/18.
+ *  Updated by yusuf on 10/15/18.
  */
 class MainListPlaceActivity : AppCompatActivity() {
 
-    private lateinit var listPlaceBinding:ActivityListBinding
-    private lateinit var listPlaceViewModel:MainListPlaceViewModel
+    private lateinit var binding:ActivityListBinding
+    private lateinit var viewModel:MainListPlaceViewModel
 
     private lateinit var adapter:ListPlaceAdapter
     private var listPlace:MutableList<ListPlaceModel.Place> = arrayListOf()
@@ -28,9 +30,12 @@ class MainListPlaceActivity : AppCompatActivity() {
 
         setupBinding()
         setupToolbar()
-        setupRecycle()
+        setupRecycler()
         setupSwipeRefresh()
 
+        viewModel.requestListPlace()
+
+        observeData()
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -41,35 +46,47 @@ class MainListPlaceActivity : AppCompatActivity() {
     }
 
     private fun setupBinding(){
-        listPlaceBinding = ActivityListBinding.inflate(LayoutInflater.from(this))
-
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_list)
+        viewModel = ViewModelProviders.of(this).get(MainListPlaceViewModel::class.java)
+        binding.listPlace = viewModel
     }
 
     private fun setupToolbar(){
-        setSupportActionBar(listPlaceBinding.toolbarList?.toolbarInclude)
+        setSupportActionBar(binding.toolbarList?.toolbarInclude)
         supportActionBar?.elevation = 5f
         supportActionBar?.title = getString(R.string.list_wisata)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    private fun setupRecycle(){
+    private fun setupRecycler(){
         val lManager = LinearLayoutManager(this)
         lManager.orientation = LinearLayoutManager.VERTICAL
 
         adapter = ListPlaceAdapter(this, listPlace)
-        listPlaceBinding.recyclerviewListPlace.layoutManager = lManager
-        listPlaceBinding.recyclerviewListPlace.adapter = adapter
+        binding.recyclerviewListPlace.layoutManager = lManager
+        binding.recyclerviewListPlace.adapter = adapter
     }
 
     private fun setupSwipeRefresh(){
-        listPlaceBinding.swipeRefreshListPlace.setColorSchemeColors(
+        binding.swipeRefreshListPlace.setColorSchemeColors(
                 ContextCompat.getColor(this, R.color.colorPrimary),
                 ContextCompat.getColor(this, R.color.colorPrimaryDark)
         )
-        listPlaceBinding.swipeRefreshListPlace.isRefreshing = true
-        listPlaceBinding.swipeRefreshListPlace.setOnRefreshListener {
-
+        binding.swipeRefreshListPlace.setOnRefreshListener {
+            viewModel.requestListPlace()
         }
+    }
+
+    private fun observeData(){
+        viewModel.listData.observe(this, Observer { listPlace ->
+            adapter.addData(listPlace?.data)
+            binding.recyclerviewListPlace.post {
+                adapter.notifyDataSetChanged()
+            }
+        })
+        viewModel.liveLoading.observe(this, Observer {isLoading ->
+            binding.swipeRefreshListPlace.isRefreshing = isLoading!!
+        })
     }
 
 }

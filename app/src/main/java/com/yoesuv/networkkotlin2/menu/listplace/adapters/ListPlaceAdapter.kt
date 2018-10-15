@@ -13,12 +13,12 @@ import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.ItemPlaceViewModel
 /**
  *  Created by yusuf on 1/14/18.
  */
-class ListPlaceAdapter(activity:Activity, private var mutableList: MutableList<ListPlaceModel.Place>) : RecyclerView.Adapter<ListPlaceAdapter.PlaceViewHolder>() {
+class ListPlaceAdapter(activity:Activity, private var listPlace: MutableList<ListPlaceModel.Place>) : RecyclerView.Adapter<ListPlaceAdapter.PlaceViewHolder>() {
 
     var inflater:LayoutInflater = LayoutInflater.from(activity)
 
     override fun getItemCount(): Int {
-        return mutableList.size
+        return listPlace.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaceViewHolder {
@@ -28,12 +28,12 @@ class ListPlaceAdapter(activity:Activity, private var mutableList: MutableList<L
 
     override fun onBindViewHolder(holder: PlaceViewHolder, position: Int) {
         val fixPosition = holder.adapterPosition
-        holder.bindBinding(mutableList[fixPosition])
+        holder.bindBinding(listPlace[fixPosition])
     }
 
-    fun addData(mutableList: MutableList<ListPlaceModel.Place>){
-        this.mutableList.clear()
-        this.mutableList.addAll(mutableList)
+    fun addData(mutableList: MutableList<ListPlaceModel.Place>?){
+        this.listPlace.clear()
+        this.listPlace.addAll(mutableList!!)
     }
 
     class PlaceViewHolder(itemView: ItemPlaceBinding) : RecyclerView.ViewHolder(itemView.root) {
