@@ -8,13 +8,13 @@ import com.google.gson.annotations.SerializedName
  */
 class GalleryModel(
 
-        @Expose @SerializedName("status_code") val statusCode:Int,
-        @Expose @SerializedName("data") val listData:List<Gallery>){
+        @Expose @SerializedName("status_code") val statusCode:Int?,
+        @Expose @SerializedName("data") val listData:MutableList<Gallery>?){
 
     class Gallery(
-            @Expose @SerializedName("caption") val caption:String,
-            @Expose @SerializedName("thumbnail") val thumbnail:String,
-            @Expose @SerializedName("image") val image:String
+            @Expose @SerializedName("caption") val caption:String?,
+            @Expose @SerializedName("thumbnail") val thumbnail:String?,
+            @Expose @SerializedName("image") val image:String?
     )
 
 }

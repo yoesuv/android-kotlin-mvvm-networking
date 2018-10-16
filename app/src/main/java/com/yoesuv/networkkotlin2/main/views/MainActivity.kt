@@ -1,16 +1,19 @@
 package com.yoesuv.networkkotlin2.main.views
 
+import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityMainBinding
+import com.yoesuv.networkkotlin2.main.viewmodels.CustomViewModelProvidersMain
 import com.yoesuv.networkkotlin2.main.viewmodels.MainViewModel
+import java.lang.ref.WeakReference
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainBinding:ActivityMainBinding
-    private lateinit var mainViewModel:MainViewModel
+    private lateinit var binding:ActivityMainBinding
+    private lateinit var viewModel:MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,13 +23,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBinding(){
-        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        mainViewModel = MainViewModel(this)
-        mainBinding.main = mainViewModel
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        viewModel = ViewModelProviders.of(this, CustomViewModelProvidersMain(application, WeakReference(this))).get(MainViewModel::class.java)
+        binding.main = viewModel
     }
 
     private fun setupToolbar(){
-        setSupportActionBar(mainBinding.toolbarMain?.toolbarInclude)
+        setSupportActionBar(binding.toolbarMain?.toolbarInclude)
         supportActionBar?.title = getString(R.string.app_name)
         supportActionBar?.elevation = 5f
     }

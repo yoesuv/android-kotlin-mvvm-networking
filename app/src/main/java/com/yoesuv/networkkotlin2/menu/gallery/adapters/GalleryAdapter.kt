@@ -17,12 +17,12 @@ class GalleryAdapter(activity: Activity, private var listGallery:MutableList<Gal
 
     private val inflater = LayoutInflater.from(activity)
 
-    override fun onBindViewHolder(holder: GalleryViewHolder?, position: Int) {
-        val fixPos = holder?.adapterPosition
-        holder?.bindBinding(listGallery[fixPos!!])
+    override fun onBindViewHolder(holder: GalleryViewHolder, position: Int) {
+        val fixPos = holder.adapterPosition
+        holder.bindBinding(listGallery[fixPos])
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): GalleryViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryViewHolder {
         val binding:ItemGalleryBinding = DataBindingUtil.inflate(inflater, R.layout.item_gallery, parent, false)
         return GalleryViewHolder(binding)
     }
@@ -41,7 +41,7 @@ class GalleryAdapter(activity: Activity, private var listGallery:MutableList<Gal
         private val itemGalleryBinding:ItemGalleryBinding = itemView
 
         fun bindBinding(model:GalleryModel.Gallery){
-            val itemGalleryViewModel = ItemGalleryViewModel(model, itemGalleryBinding)
+            val itemGalleryViewModel = ItemGalleryViewModel(model)
             itemGalleryBinding.gallery = itemGalleryViewModel
         }
 

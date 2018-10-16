@@ -9,18 +9,10 @@ import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 /**
  *  Created by yusuf on 1/14/18.
  */
-class ItemPlaceViewModel(place:ListPlaceModel.Place, placeBinding: ItemPlaceBinding) {
+class ItemPlaceViewModel(place:ListPlaceModel.Place) {
 
-    val name:ObservableField<String> = ObservableField()
-    val location:ObservableField<String> = ObservableField()
+    val name:ObservableField<String?> = ObservableField(place.nama)
+    val location:ObservableField<String?> = ObservableField(place.lokasi)
+    val imageUrl:ObservableField<String?> = ObservableField(place.thumbnail)
 
-    init {
-        name.set(place.nama)
-        location.set(place.lokasi)
-
-        placeBinding.imgListPlace.scaleType = ImageView.ScaleType.CENTER_CROP
-        Picasso.with(placeBinding.root.context.applicationContext)
-                .load(place.thumbnail)
-                .into(placeBinding.imgListPlace)
-    }
 }

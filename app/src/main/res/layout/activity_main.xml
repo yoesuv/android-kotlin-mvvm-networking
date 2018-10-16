@@ -37,7 +37,7 @@
                     android:text="@string/list_wisata"
                     android:textColor="@drawable/button_text_selector"
                     android:theme="@style/buttonPrimaryTheme"
-                    android:onClick="@{main::clikListWisata}"/>
+                    android:onClick="@{main::clickListWisata}"/>
 
                 <android.support.v7.widget.AppCompatButton
                     android:id="@+id/buttonTwo"
