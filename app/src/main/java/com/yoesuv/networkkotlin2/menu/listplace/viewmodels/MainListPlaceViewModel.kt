@@ -5,7 +5,6 @@ import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.networks.ListPlaceResponse
-import com.yoesuv.networkkotlin2.networks.ResponseRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -15,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class MainListPlaceViewModel(application: Application): AndroidViewModel(application) {
 
-    private val listPlaceResponse:ListPlaceResponse = ResponseRepository.provideListPlaceRepository()
+    private val listPlaceResponse:ListPlaceResponse = ListPlaceResponse()
     private val compositeDisposable:CompositeDisposable = CompositeDisposable()
 
     var listData: MutableLiveData<ListPlaceModel> = MutableLiveData()

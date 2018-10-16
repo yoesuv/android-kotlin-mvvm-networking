@@ -11,8 +11,8 @@ import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
  */
 class ItemPlaceViewModel(place:ListPlaceModel.Place) {
 
-    val name:ObservableField<String> = ObservableField(place.nama!!)
-    val location:ObservableField<String> = ObservableField(place.lokasi!!)
-    val imageUrl:ObservableField<String> = ObservableField(place.thumbnail!!)
+    val name:ObservableField<String?> = ObservableField(place.nama)
+    val location:ObservableField<String?> = ObservableField(place.lokasi)
+    val imageUrl:ObservableField<String?> = ObservableField(place.thumbnail)
 
 }

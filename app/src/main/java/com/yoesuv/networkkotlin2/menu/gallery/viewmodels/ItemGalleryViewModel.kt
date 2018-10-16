@@ -10,6 +10,6 @@ import com.yoesuv.networkkotlin2.menu.gallery.models.GalleryModel
  */
 class ItemGalleryViewModel(val gallery: GalleryModel.Gallery) {
 
-    var imageUrl: ObservableField<String> = ObservableField(gallery.thumbnail)
+    var imageUrl: ObservableField<String?> = ObservableField(gallery.thumbnail)
 
 }

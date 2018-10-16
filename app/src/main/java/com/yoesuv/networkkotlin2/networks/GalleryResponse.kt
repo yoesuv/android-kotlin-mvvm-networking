@@ -6,7 +6,9 @@ import io.reactivex.Observable
 /**
  *  Created by yusuf on 1/14/18.
  */
-class GalleryResponse(private val apiService:RestApi) {
+class GalleryResponse{
+
+    private val apiService = ServiceFactory.create()
 
     fun getListGallery():Observable<GalleryModel>{
         return apiService.getListGallery()

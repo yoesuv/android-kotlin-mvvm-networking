@@ -5,7 +5,6 @@ import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
 import com.yoesuv.networkkotlin2.menu.gallery.models.GalleryModel
 import com.yoesuv.networkkotlin2.networks.GalleryResponse
-import com.yoesuv.networkkotlin2.networks.ResponseRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -15,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class MainGalleryViewModel(application: Application): AndroidViewModel(application) {
 
-    private val galleryResponse:GalleryResponse = ResponseRepository.provideListGalleryRepository()
+    private val galleryResponse:GalleryResponse = GalleryResponse()
     private val compositeDisposable:CompositeDisposable = CompositeDisposable()
 
     var liveDataGallery: MutableLiveData<GalleryModel> = MutableLiveData()
