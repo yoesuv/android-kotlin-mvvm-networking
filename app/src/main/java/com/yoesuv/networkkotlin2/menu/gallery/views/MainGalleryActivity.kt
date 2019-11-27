@@ -58,7 +58,7 @@ class MainGalleryActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar(){
-        setSupportActionBar(binding.toolbarGallery?.toolbarInclude)
+        setSupportActionBar(binding.toolbarGallery.toolbarInclude)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.gallery_wisata)
         supportActionBar?.elevation = 5f

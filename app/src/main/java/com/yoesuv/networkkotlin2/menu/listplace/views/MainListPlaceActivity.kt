@@ -58,7 +58,7 @@ class MainListPlaceActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar(){
-        setSupportActionBar(binding.toolbarList?.toolbarInclude)
+        setSupportActionBar(binding.toolbarList.toolbarInclude)
         supportActionBar?.elevation = 5f
         supportActionBar?.title = getString(R.string.list_wisata)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

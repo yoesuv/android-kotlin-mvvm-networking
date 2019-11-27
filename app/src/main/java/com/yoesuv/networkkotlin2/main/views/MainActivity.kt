@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar(){
-        setSupportActionBar(binding.toolbarMain?.toolbarInclude)
+        setSupportActionBar(binding.toolbarMain.toolbarInclude)
         supportActionBar?.title = getString(R.string.app_name)
         supportActionBar?.elevation = 5f
     }
