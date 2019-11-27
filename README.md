@@ -10,9 +10,9 @@ List Recyclerview | Grid Recyclerview
 
 #### List libraries used in this project ####
 * [Android Architecture Component](https://developer.android.com/topic/libraries/architecture/)
+* [Coil](https://coil-kt.github.io/coil/)
 * [DexCount Gradle Plugin](https://github.com/KeepSafe/dexcount-gradle-plugin)
 * [OkHttp](https://github.com/square/okhttp)
-* [Picasso](https://github.com/square/picasso)
 * [Retrofit](https://github.com/square/retrofit)
 * [RxAndroid](https://github.com/ReactiveX/RxAndroid)
 * [RxJava](https://github.com/ReactiveX/RxJava)
