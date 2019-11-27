@@ -18,7 +18,9 @@
             android:id="@+id/imgItemGallery"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:loadImage="@{gallery.imageUrl}"/>
+            android:scaleType="centerCrop"
+            tools:loadImage="@{gallery.imageUrl}"
+            tools:srcCompat="@tools:sample/backgrounds/scenic"/>
 
     </RelativeLayout>
 

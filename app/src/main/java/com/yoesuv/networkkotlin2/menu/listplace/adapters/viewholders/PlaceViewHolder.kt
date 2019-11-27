@@ -1,4 +1,4 @@
-package com.yoesuv.networkkotlin2.menu.listplace.adapters.viewmodels
+package com.yoesuv.networkkotlin2.menu.listplace.adapters.viewholders
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

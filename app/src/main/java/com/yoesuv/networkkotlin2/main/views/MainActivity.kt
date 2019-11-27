@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityMainBinding
+import com.yoesuv.networkkotlin2.menu.gallery.views.MainGalleryActivity
 import com.yoesuv.networkkotlin2.menu.listplace.views.MainListPlaceActivity
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(MainListPlaceActivity.getInstance(this))
         }
         binding.buttonTwo.setOnClickListener {
-
+            startActivity(MainGalleryActivity.getInstance(this))
         }
     }
 

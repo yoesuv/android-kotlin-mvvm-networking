@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.yoesuv.networkkotlin2.menu.listplace.adapters.viewmodels.PlaceViewHolder
+import com.yoesuv.networkkotlin2.menu.listplace.adapters.viewholders.PlaceViewHolder
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 
 /**
