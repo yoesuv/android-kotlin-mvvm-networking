@@ -1,8 +1,8 @@
 package com.yoesuv.networkkotlin2.menu.listplace.viewmodels
 
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.networks.ListPlaceResponse
 import io.reactivex.android.schedulers.AndroidSchedulers

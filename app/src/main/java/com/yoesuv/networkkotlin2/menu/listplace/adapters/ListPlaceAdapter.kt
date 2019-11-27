@@ -1,8 +1,8 @@
 package com.yoesuv.networkkotlin2.menu.listplace.adapters
 
 import android.app.Activity
-import android.databinding.DataBindingUtil
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.yoesuv.networkkotlin2.R
@@ -13,7 +13,7 @@ import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.ItemPlaceViewModel
 /**
  *  Created by yusuf on 1/14/18.
  */
-class ListPlaceAdapter(activity:Activity, private var listPlace: MutableList<ListPlaceModel.Place>) : RecyclerView.Adapter<ListPlaceAdapter.PlaceViewHolder>() {
+class ListPlaceAdapter(activity:Activity, private var listPlace: MutableList<ListPlaceModel.Place>) : androidx.recyclerview.widget.RecyclerView.Adapter<ListPlaceAdapter.PlaceViewHolder>() {
 
     var inflater:LayoutInflater = LayoutInflater.from(activity)
 
@@ -36,7 +36,7 @@ class ListPlaceAdapter(activity:Activity, private var listPlace: MutableList<Lis
         this.listPlace.addAll(mutableList!!)
     }
 
-    class PlaceViewHolder(itemView: ItemPlaceBinding) : RecyclerView.ViewHolder(itemView.root) {
+    class PlaceViewHolder(itemView: ItemPlaceBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView.root) {
 
         private val placeBinding:ItemPlaceBinding = itemView
 

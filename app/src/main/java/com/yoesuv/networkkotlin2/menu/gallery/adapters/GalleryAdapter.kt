@@ -1,8 +1,8 @@
 package com.yoesuv.networkkotlin2.menu.gallery.adapters
 
 import android.app.Activity
-import android.databinding.DataBindingUtil
-import android.support.v7.widget.RecyclerView
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.yoesuv.networkkotlin2.R
@@ -13,7 +13,7 @@ import com.yoesuv.networkkotlin2.menu.gallery.viewmodels.ItemGalleryViewModel
 /**
  *  Created by yusuf on 1/14/18.
  */
-class GalleryAdapter(activity: Activity, private var listGallery:MutableList<GalleryModel.Gallery>) : RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>() {
+class GalleryAdapter(activity: Activity, private var listGallery:MutableList<GalleryModel.Gallery>) : androidx.recyclerview.widget.RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>() {
 
     private val inflater = LayoutInflater.from(activity)
 
@@ -36,7 +36,7 @@ class GalleryAdapter(activity: Activity, private var listGallery:MutableList<Gal
         this.listGallery.addAll(mutableList)
     }
 
-    class GalleryViewHolder(itemView: ItemGalleryBinding) : RecyclerView.ViewHolder(itemView.root) {
+    class GalleryViewHolder(itemView: ItemGalleryBinding) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView.root) {
 
         private val itemGalleryBinding:ItemGalleryBinding = itemView
 

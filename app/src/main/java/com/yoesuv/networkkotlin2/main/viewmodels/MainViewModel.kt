@@ -2,7 +2,7 @@ package com.yoesuv.networkkotlin2.main.viewmodels
 
 import android.app.Activity
 import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
+import androidx.lifecycle.AndroidViewModel
 import android.content.Intent
 import android.view.View
 import com.yoesuv.networkkotlin2.menu.gallery.views.MainGalleryActivity

@@ -1,12 +1,12 @@
 package com.yoesuv.networkkotlin2.menu.gallery.views
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import android.view.MenuItem
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityGalleryBinding
@@ -59,7 +59,7 @@ class MainGalleryActivity : AppCompatActivity() {
     }
 
     private fun setupRecycler(){
-        val lManager = GridLayoutManager(this, 3)
+        val lManager = androidx.recyclerview.widget.GridLayoutManager(this, 3)
         adapter = GalleryAdapter(this, listGallery)
         binding.recyclerviewGallery.layoutManager = lManager
         binding.recyclerviewGallery.adapter = adapter

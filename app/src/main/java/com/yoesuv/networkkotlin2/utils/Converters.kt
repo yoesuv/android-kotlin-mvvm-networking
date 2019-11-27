@@ -1,7 +1,7 @@
 package com.yoesuv.networkkotlin2.utils
 
-import android.databinding.BindingAdapter
-import android.support.v7.widget.AppCompatImageView
+import androidx.databinding.BindingAdapter
+import androidx.appcompat.widget.AppCompatImageView
 import com.squareup.picasso.Picasso
 
 class Converters {

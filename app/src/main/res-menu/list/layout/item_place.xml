@@ -16,7 +16,7 @@
         android:paddingRight="@dimen/layout_item_place_padding"
         android:paddingBottom="@dimen/layout_item_place_padding">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgListPlace"
             android:layout_width="@dimen/img_list_place_size"
             android:layout_height="@dimen/img_list_place_size"
@@ -32,7 +32,7 @@
             android:paddingRight="@dimen/layout_text_list_place_padding"
             android:layout_centerVertical="true">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 android:textSize="@dimen/text_title_list_place_size"
                 android:textStyle="bold"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

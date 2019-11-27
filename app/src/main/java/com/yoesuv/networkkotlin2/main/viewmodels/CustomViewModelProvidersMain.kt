@@ -2,8 +2,8 @@ package com.yoesuv.networkkotlin2.main.viewmodels
 
 import android.app.Activity
 import android.app.Application
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import java.lang.ref.WeakReference
 
 class CustomViewModelProvidersMain(private val application: Application, private val weakActivity: WeakReference<Activity>): ViewModelProvider.NewInstanceFactory() {
