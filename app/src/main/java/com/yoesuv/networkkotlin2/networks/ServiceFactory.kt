@@ -1,6 +1,6 @@
 package com.yoesuv.networkkotlin2.networks
 
-import com.yoesuv.networkkotlin2.datas.AppData
+import com.yoesuv.networkkotlin2.data.AppData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,4 +1,4 @@
-package com.yoesuv.networkkotlin2.datas
+package com.yoesuv.networkkotlin2.data
 
 /**
  *  Created by yusuf on 1/13/18.

@@ -2,7 +2,7 @@ package com.yoesuv.networkkotlin2.utils
 
 import android.util.Log
 import com.yoesuv.networkkotlin2.BuildConfig
-import com.yoesuv.networkkotlin2.datas.AppData
+import com.yoesuv.networkkotlin2.data.AppData
 
 fun logDebug(message: String) {
     if (BuildConfig.DEBUG) {

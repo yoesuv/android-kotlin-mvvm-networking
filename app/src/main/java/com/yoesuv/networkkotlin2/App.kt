@@ -1,14 +1,15 @@
 package com.yoesuv.networkkotlin2
 
 import android.app.Application
-import android.util.Log
+import com.yoesuv.networkkotlin2.utils.logDebug
 
 /**
  *  Created by yusuf on 1/13/18.
  */
 class App: Application() {
 
-    init {
-        Log.d("result","App # init class event")
+    override fun onCreate() {
+        super.onCreate()
+        logDebug("App # onCreate")
     }
 }
