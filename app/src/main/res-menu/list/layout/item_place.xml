@@ -20,7 +20,9 @@
             android:id="@+id/imgListPlace"
             android:layout_width="@dimen/img_list_place_size"
             android:layout_height="@dimen/img_list_place_size"
-            tools:loadImage="@{place.imageUrl}"/>
+            android:scaleType="centerCrop"
+            tools:loadImage="@{place.imageUrl}"
+            tools:srcCompat="@tools:sample/backgrounds/scenic"/>
 
         <RelativeLayout
             android:id="@+id/layoutTextItemPlace"
@@ -38,7 +40,10 @@
                 android:layout_height="wrap_content"
                 android:text="@{place.name}"
                 android:textSize="@dimen/text_title_list_place_size"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="@tools:sample/lorem"/>
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textLocation"
@@ -46,7 +51,10 @@
                 android:layout_height="wrap_content"
                 android:text="@{place.location}"
                 android:textSize="@dimen/text_location_list_place_size"
-                android:layout_below="@+id/textTitle"/>
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_below="@+id/textTitle"
+                tools:text="@tools:sample/lorem"/>
 
         </RelativeLayout>
 

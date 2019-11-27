@@ -5,6 +5,8 @@ package com.yoesuv.networkkotlin2.datas
  */
 object AppData {
 
+    const val TAG_DEBUG = "result_debug"
+    const val TAG_ERROR = "result_error"
     const val BASE_URL = "https://gist.githubusercontent.com/yoesuv/"
 
 }

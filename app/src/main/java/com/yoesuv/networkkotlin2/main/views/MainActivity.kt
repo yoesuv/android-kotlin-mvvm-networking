@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityMainBinding
+import com.yoesuv.networkkotlin2.menu.listplace.views.MainListPlaceActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupBinding(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.buttonOne.setOnClickListener {
-
+            startActivity(MainListPlaceActivity.getInstance(this))
         }
         binding.buttonTwo.setOnClickListener {
 
