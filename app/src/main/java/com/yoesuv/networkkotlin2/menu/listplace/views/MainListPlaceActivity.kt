@@ -53,6 +53,7 @@ class MainListPlaceActivity : AppCompatActivity() {
 
     private fun setupBinding(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list)
+        binding.lifecycleOwner = this
         viewModel = ViewModelProviders.of(this).get(MainListPlaceViewModel::class.java)
         binding.listPlace = viewModel
     }
@@ -84,9 +85,6 @@ class MainListPlaceActivity : AppCompatActivity() {
     private fun observeData(){
         viewModel.listData.observe(this, Observer { listPlace ->
             listPlaceAdapter.submitList(listPlace.data)
-        })
-        viewModel.liveLoading.observe(this, Observer {isLoading ->
-            binding.swipeRefreshListPlace.isRefreshing = isLoading!!
         })
     }
 

@@ -29,8 +29,8 @@ class MainListPlaceViewModel(application: Application): AndroidViewModel(applica
                     .subscribe(
                             { response ->
                                 liveLoading.postValue(false)
-                                listData.postValue(response) },
-                            { throwable ->
+                                listData.postValue(response)
+                            }, { throwable ->
                                 liveLoading.postValue(false)
                                 throwable.printStackTrace() }
                     )

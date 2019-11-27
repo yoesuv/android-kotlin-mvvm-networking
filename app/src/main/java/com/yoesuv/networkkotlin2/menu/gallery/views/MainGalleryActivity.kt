@@ -53,6 +53,7 @@ class MainGalleryActivity : AppCompatActivity() {
 
     private fun setupBinding(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_gallery)
+        binding.lifecycleOwner = this
         viewModel = ViewModelProviders.of(this).get(MainGalleryViewModel::class.java)
         binding.gallery = viewModel
     }
@@ -76,16 +77,12 @@ class MainGalleryActivity : AppCompatActivity() {
                 ContextCompat.getColor(this, R.color.colorPrimary),
                 ContextCompat.getColor(this, R.color.colorPrimaryDark)
         )
-        binding.swipeRefreshGallery.isRefreshing = true
         binding.swipeRefreshGallery.setOnRefreshListener {
             viewModel.requestListGallery()
         }
     }
 
     private fun observeData(){
-        viewModel.liveLoading.observe(this, Observer { isLoading ->
-            binding.swipeRefreshGallery.isRefreshing = isLoading!!
-        })
         viewModel.liveDataGallery.observe(this, Observer { galleryModel ->
             adapter.submitList(galleryModel.listData)
         })
