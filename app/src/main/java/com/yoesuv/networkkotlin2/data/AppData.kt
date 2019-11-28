@@ -8,5 +8,6 @@ object AppData {
     const val TAG_DEBUG = "result_debug"
     const val TAG_ERROR = "result_error"
     const val BASE_URL = "https://gist.githubusercontent.com/yoesuv/"
+    const val TIME_OUT = 30000
 
 }

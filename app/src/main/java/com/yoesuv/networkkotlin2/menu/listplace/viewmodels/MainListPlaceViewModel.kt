@@ -4,41 +4,30 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
-import com.yoesuv.networkkotlin2.networks.ListPlaceResponse
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import com.yoesuv.networkkotlin2.networks.ListPlaceRepository
 
 /**
- *  Updated by yusuf on 10/15/18.
+ *  Updated by yusuf on 11/28/19.
  */
 class MainListPlaceViewModel(application: Application): AndroidViewModel(application) {
 
-    private val listPlaceResponse:ListPlaceResponse = ListPlaceResponse()
-    private val compositeDisposable:CompositeDisposable = CompositeDisposable()
+    private val listPlaceRepository = ListPlaceRepository()
 
     var listData: MutableLiveData<ListPlaceModel> = MutableLiveData()
-    var liveLoading: MutableLiveData<Boolean> = MutableLiveData()
+    var liveLoading: MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun requestListPlace(){
         liveLoading.postValue(true)
-        compositeDisposable.add(
-            listPlaceResponse.getListPlace()
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.io())
-                    .subscribe(
-                            { response ->
-                                liveLoading.postValue(false)
-                                listData.postValue(response)
-                            }, { throwable ->
-                                liveLoading.postValue(false)
-                                throwable.printStackTrace() }
-                    )
-        )
+        listPlaceRepository.getListPlace({
+            liveLoading.postValue(false)
+            listData.postValue(it)
+        },{
+            liveLoading.postValue(false)
+        })
     }
 
     override fun onCleared() {
         super.onCleared()
-        compositeDisposable.clear()
+        listPlaceRepository.cleared()
     }
 }
