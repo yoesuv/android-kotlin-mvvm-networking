@@ -7,7 +7,7 @@ import com.github.kittinunf.fuel.core.requests.tryCancel
 import com.github.kittinunf.fuel.gson.responseObject
 import com.yoesuv.networkkotlin2.data.EndPoint
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
-import com.yoesuv.networkkotlin2.utils.logError
+import com.yoesuv.networkkotlin2.utils.debugPrintStackTrace
 
 class ListPlaceRepository {
 
@@ -19,8 +19,7 @@ class ListPlaceRepository {
                 onSuccess(it)
             }, {
                 onError(it)
-                logError("ListPlaceRepository # getListPlace error : ${it.message}")
-                it.printStackTrace()
+                debugPrintStackTrace(it)
             })
         }
     }

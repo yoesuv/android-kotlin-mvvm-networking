@@ -1,6 +1,7 @@
 package com.yoesuv.networkkotlin2.utils
 
 import android.util.Log
+import com.github.kittinunf.fuel.core.FuelError
 import com.yoesuv.networkkotlin2.BuildConfig
 import com.yoesuv.networkkotlin2.data.AppData
 
@@ -13,5 +14,12 @@ fun logDebug(message: String) {
 fun logError(message: String) {
     if (BuildConfig.DEBUG) {
         Log.e(AppData.TAG_ERROR, message)
+    }
+}
+
+fun debugPrintStackTrace(fuelError: FuelError) {
+    if (BuildConfig.DEBUG) {
+        Log.e(AppData.TAG_ERROR,"=============== PrintStackTrace ===============")
+        fuelError.printStackTrace()
     }
 }

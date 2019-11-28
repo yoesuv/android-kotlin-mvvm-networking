@@ -7,6 +7,7 @@ import com.github.kittinunf.fuel.core.requests.tryCancel
 import com.github.kittinunf.fuel.gson.responseObject
 import com.yoesuv.networkkotlin2.data.EndPoint
 import com.yoesuv.networkkotlin2.menu.gallery.models.GalleryModel
+import com.yoesuv.networkkotlin2.utils.debugPrintStackTrace
 
 class GalleryRepository {
 
@@ -18,6 +19,7 @@ class GalleryRepository {
                 onSuccess(it)
             }, {
                 onError(it)
+                debugPrintStackTrace(it)
             })
         }
     }
