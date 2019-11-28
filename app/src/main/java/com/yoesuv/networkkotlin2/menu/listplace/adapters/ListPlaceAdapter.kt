@@ -1,50 +1,38 @@
 package com.yoesuv.networkkotlin2.menu.listplace.adapters
 
-import android.app.Activity
-import android.databinding.DataBindingUtil
-import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
+import android.annotation.SuppressLint
 import android.view.ViewGroup
-import com.yoesuv.networkkotlin2.R
-import com.yoesuv.networkkotlin2.databinding.ItemPlaceBinding
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import com.yoesuv.networkkotlin2.menu.listplace.adapters.viewholders.PlaceViewHolder
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
-import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.ItemPlaceViewModel
 
 /**
- *  Created by yusuf on 1/14/18.
+ *  Updated by yusuf on 11/27/19.
  */
-class ListPlaceAdapter(activity:Activity, private var listPlace: MutableList<ListPlaceModel.Place>) : RecyclerView.Adapter<ListPlaceAdapter.PlaceViewHolder>() {
-
-    var inflater:LayoutInflater = LayoutInflater.from(activity)
-
-    override fun getItemCount(): Int {
-        return listPlace.size
-    }
+class ListPlaceAdapter : ListAdapter<ListPlaceModel.Place, PlaceViewHolder>(listPlaceCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaceViewHolder {
-        val binding:ItemPlaceBinding = DataBindingUtil.inflate(inflater, R.layout.item_place, parent, false)
-        return PlaceViewHolder(binding)
+        return PlaceViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: PlaceViewHolder, position: Int) {
-        val fixPosition = holder.adapterPosition
-        holder.bindBinding(listPlace[fixPosition])
+        val item = getItem(position)
+        holder.bind(item)
     }
 
-    fun addData(mutableList: MutableList<ListPlaceModel.Place>?){
-        this.listPlace.clear()
-        this.listPlace.addAll(mutableList!!)
-    }
+    companion object {
+        val listPlaceCallback = object : DiffUtil.ItemCallback<ListPlaceModel.Place>() {
+            override fun areItemsTheSame(oldItem: ListPlaceModel.Place, newItem: ListPlaceModel.Place): Boolean {
+                return oldItem.nama == newItem.nama
+            }
 
-    class PlaceViewHolder(itemView: ItemPlaceBinding) : RecyclerView.ViewHolder(itemView.root) {
+            @SuppressLint("DiffUtilEquals")
+            override fun areContentsTheSame(oldItem: ListPlaceModel.Place, newItem: ListPlaceModel.Place): Boolean {
+                return oldItem == newItem
+            }
 
-        private val placeBinding:ItemPlaceBinding = itemView
-
-        fun bindBinding(model: ListPlaceModel.Place){
-            val placeViewModel = ItemPlaceViewModel(model)
-            placeBinding.place = placeViewModel
         }
-
     }
 
 }

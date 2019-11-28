@@ -1,29 +1,35 @@
 package com.yoesuv.networkkotlin2.menu.listplace.views
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
+import android.content.Context
+import android.content.Intent
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityListBinding
 import com.yoesuv.networkkotlin2.menu.listplace.adapters.ListPlaceAdapter
-import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.MainListPlaceViewModel
 
 /**
- *  Updated by yusuf on 10/15/18.
+ *  Updated by yusuf on 11/27/19.
  */
 class MainListPlaceActivity : AppCompatActivity() {
+
+    companion object {
+        fun getInstance(context: Context): Intent {
+            return Intent(context, MainListPlaceActivity::class.java)
+        }
+    }
 
     private lateinit var binding:ActivityListBinding
     private lateinit var viewModel:MainListPlaceViewModel
 
-    private lateinit var adapter:ListPlaceAdapter
-    private var listPlace:MutableList<ListPlaceModel.Place> = arrayListOf()
+    private lateinit var listPlaceAdapter:ListPlaceAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +44,8 @@ class MainListPlaceActivity : AppCompatActivity() {
         observeData()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if(item?.itemId==android.R.id.home){
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId==android.R.id.home){
             onBackPressed()
         }
         return super.onOptionsItemSelected(item)
@@ -47,12 +53,13 @@ class MainListPlaceActivity : AppCompatActivity() {
 
     private fun setupBinding(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list)
+        binding.lifecycleOwner = this
         viewModel = ViewModelProviders.of(this).get(MainListPlaceViewModel::class.java)
         binding.listPlace = viewModel
     }
 
     private fun setupToolbar(){
-        setSupportActionBar(binding.toolbarList?.toolbarInclude)
+        setSupportActionBar(binding.toolbarList.toolbarInclude)
         supportActionBar?.elevation = 5f
         supportActionBar?.title = getString(R.string.list_wisata)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -60,11 +67,9 @@ class MainListPlaceActivity : AppCompatActivity() {
 
     private fun setupRecycler(){
         val lManager = LinearLayoutManager(this)
-        lManager.orientation = LinearLayoutManager.VERTICAL
-
-        adapter = ListPlaceAdapter(this, listPlace)
         binding.recyclerviewListPlace.layoutManager = lManager
-        binding.recyclerviewListPlace.adapter = adapter
+        listPlaceAdapter = ListPlaceAdapter()
+        binding.recyclerviewListPlace.adapter = listPlaceAdapter
     }
 
     private fun setupSwipeRefresh(){
@@ -79,13 +84,7 @@ class MainListPlaceActivity : AppCompatActivity() {
 
     private fun observeData(){
         viewModel.listData.observe(this, Observer { listPlace ->
-            adapter.addData(listPlace?.data)
-            binding.recyclerviewListPlace.post {
-                adapter.notifyDataSetChanged()
-            }
-        })
-        viewModel.liveLoading.observe(this, Observer {isLoading ->
-            binding.swipeRefreshListPlace.isRefreshing = isLoading!!
+            listPlaceAdapter.submitList(listPlace.data)
         })
     }
 

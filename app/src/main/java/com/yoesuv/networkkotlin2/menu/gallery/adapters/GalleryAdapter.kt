@@ -1,50 +1,37 @@
 package com.yoesuv.networkkotlin2.menu.gallery.adapters
 
-import android.app.Activity
-import android.databinding.DataBindingUtil
-import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
+import android.annotation.SuppressLint
 import android.view.ViewGroup
-import com.yoesuv.networkkotlin2.R
-import com.yoesuv.networkkotlin2.databinding.ItemGalleryBinding
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import com.yoesuv.networkkotlin2.menu.gallery.adapters.viewholders.GalleryViewHolder
 import com.yoesuv.networkkotlin2.menu.gallery.models.GalleryModel
-import com.yoesuv.networkkotlin2.menu.gallery.viewmodels.ItemGalleryViewModel
 
 /**
- *  Created by yusuf on 1/14/18.
+ *  Updated by yusuf on 11/27/19.
  */
-class GalleryAdapter(activity: Activity, private var listGallery:MutableList<GalleryModel.Gallery>) : RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder>() {
-
-    private val inflater = LayoutInflater.from(activity)
-
-    override fun onBindViewHolder(holder: GalleryViewHolder, position: Int) {
-        val fixPos = holder.adapterPosition
-        holder.bindBinding(listGallery[fixPos])
-    }
+class GalleryAdapter: ListAdapter<GalleryModel.Gallery, GalleryViewHolder>(galleryCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GalleryViewHolder {
-        val binding:ItemGalleryBinding = DataBindingUtil.inflate(inflater, R.layout.item_gallery, parent, false)
-        return GalleryViewHolder(binding)
+        return GalleryViewHolder.from(parent)
     }
 
-    override fun getItemCount(): Int {
-        return listGallery.size
+    override fun onBindViewHolder(holder: GalleryViewHolder, position: Int) {
+        val item = getItem(position)
+        holder.bind(item)
     }
 
-    fun addData(mutableList: MutableList<GalleryModel.Gallery>){
-        this.listGallery.clear()
-        this.listGallery.addAll(mutableList)
-    }
+    companion object {
+        val galleryCallback = object: DiffUtil.ItemCallback<GalleryModel.Gallery> () {
+            override fun areItemsTheSame(oldItem: GalleryModel.Gallery, newItem: GalleryModel.Gallery): Boolean {
+                return oldItem.image == newItem.image
+            }
 
-    class GalleryViewHolder(itemView: ItemGalleryBinding) : RecyclerView.ViewHolder(itemView.root) {
-
-        private val itemGalleryBinding:ItemGalleryBinding = itemView
-
-        fun bindBinding(model:GalleryModel.Gallery){
-            val itemGalleryViewModel = ItemGalleryViewModel(model)
-            itemGalleryBinding.gallery = itemGalleryViewModel
+            @SuppressLint("DiffUtilEquals")
+            override fun areContentsTheSame(oldItem: GalleryModel.Gallery, newItem: GalleryModel.Gallery): Boolean {
+                return oldItem == newItem
+            }
         }
-
     }
 
 }

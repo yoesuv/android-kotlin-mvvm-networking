@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -16,11 +17,13 @@
         android:paddingRight="@dimen/layout_item_place_padding"
         android:paddingBottom="@dimen/layout_item_place_padding">
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgListPlace"
             android:layout_width="@dimen/img_list_place_size"
             android:layout_height="@dimen/img_list_place_size"
-            tools:loadImage="@{place.imageUrl}"/>
+            android:scaleType="centerCrop"
+            app:loadImage="@{place.imageUrl}"
+            tools:srcCompat="@tools:sample/backgrounds/scenic"/>
 
         <RelativeLayout
             android:id="@+id/layoutTextItemPlace"
@@ -32,21 +35,27 @@
             android:paddingRight="@dimen/layout_text_list_place_padding"
             android:layout_centerVertical="true">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{place.name}"
                 android:textSize="@dimen/text_title_list_place_size"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="@tools:sample/lorem"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{place.location}"
                 android:textSize="@dimen/text_location_list_place_size"
-                android:layout_below="@+id/textTitle"/>
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_below="@+id/textTitle"
+                tools:text="@tools:sample/lorem"/>
 
         </RelativeLayout>
 

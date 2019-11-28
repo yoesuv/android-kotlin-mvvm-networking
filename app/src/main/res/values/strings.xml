@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Network Kotlin2</string>
 
+    <string name="pilih_menu">Pilih Menu</string>
     <string name="list_wisata">Daftar Tempat Wisata</string>
     <string name="gallery_wisata">Gallery Tempat Wisata</string>
 </resources>

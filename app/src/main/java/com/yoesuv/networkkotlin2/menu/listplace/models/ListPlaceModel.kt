@@ -11,7 +11,7 @@ data class ListPlaceModel(
         @Expose @SerializedName("status_code") val statusCode:Int?,
         @Expose @SerializedName("data") val data:MutableList<Place>?){
 
-    class Place(
+    data class Place(
             @Expose @SerializedName("nama") val nama:String?,
             @Expose @SerializedName("lokasi") val lokasi:String?,
             @Expose @SerializedName("deskripsi") val deskripsi:String?,

@@ -1,19 +1,16 @@
 package com.yoesuv.networkkotlin2.main.views
 
-import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityMainBinding
-import com.yoesuv.networkkotlin2.main.viewmodels.CustomViewModelProvidersMain
-import com.yoesuv.networkkotlin2.main.viewmodels.MainViewModel
-import java.lang.ref.WeakReference
+import com.yoesuv.networkkotlin2.menu.gallery.views.MainGalleryActivity
+import com.yoesuv.networkkotlin2.menu.listplace.views.MainListPlaceActivity
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding:ActivityMainBinding
-    private lateinit var viewModel:MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,12 +21,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBinding(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        viewModel = ViewModelProviders.of(this, CustomViewModelProvidersMain(application, WeakReference(this))).get(MainViewModel::class.java)
-        binding.main = viewModel
+        binding.buttonOne.setOnClickListener {
+            startActivity(MainListPlaceActivity.getInstance(this))
+        }
+        binding.buttonTwo.setOnClickListener {
+            startActivity(MainGalleryActivity.getInstance(this))
+        }
     }
 
     private fun setupToolbar(){
-        setSupportActionBar(binding.toolbarMain?.toolbarInclude)
+        setSupportActionBar(binding.toolbarMain.toolbarInclude)
         supportActionBar?.title = getString(R.string.app_name)
         supportActionBar?.elevation = 5f
     }
