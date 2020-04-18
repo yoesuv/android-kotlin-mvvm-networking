@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GITHUB PROJECT-android-kotlin-mvvm-networking.iml" filepath="$PROJECT_DIR$/GITHUB PROJECT-android-kotlin-mvvm-networking.iml" group="android-kotlin-mvvm-networking" />
+      <module fileurl="file://$PROJECT_DIR$/app/GITHUB PROJECT-android-kotlin-mvvm-networking-app.iml" filepath="$PROJECT_DIR$/app/GITHUB PROJECT-android-kotlin-mvvm-networking-app.iml" group="android-kotlin-mvvm-networking/app" />
       <module fileurl="file://$PROJECT_DIR$/TEMP-android-kotlin-mvvm-networking.iml" filepath="$PROJECT_DIR$/TEMP-android-kotlin-mvvm-networking.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-kotlin-mvvm-networking.iml" filepath="$PROJECT_DIR$/android-kotlin-mvvm-networking.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/android-kotlin-mvvm-networking-app.iml" filepath="$PROJECT_DIR$/app/android-kotlin-mvvm-networking-app.iml" />
