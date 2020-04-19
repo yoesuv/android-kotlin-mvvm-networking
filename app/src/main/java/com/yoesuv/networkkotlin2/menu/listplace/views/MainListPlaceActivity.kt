@@ -3,12 +3,12 @@ package com.yoesuv.networkkotlin2.menu.listplace.views
 import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityListBinding
@@ -16,7 +16,7 @@ import com.yoesuv.networkkotlin2.menu.listplace.adapters.ListPlaceAdapter
 import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.MainListPlaceViewModel
 
 /**
- *  Updated by yusuf on 11/27/19.
+ *  Updated by yusuf on 04/19/20.
  */
 class MainListPlaceActivity : AppCompatActivity() {
 
@@ -54,7 +54,7 @@ class MainListPlaceActivity : AppCompatActivity() {
     private fun setupBinding(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list)
         binding.lifecycleOwner = this
-        viewModel = ViewModelProviders.of(this).get(MainListPlaceViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MainListPlaceViewModel::class.java)
         binding.listPlace = viewModel
     }
 
