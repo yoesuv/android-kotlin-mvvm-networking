@@ -29,7 +29,6 @@
             android:id="@+id/layoutTextItemPlace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/imgListPlace"
             android:layout_toEndOf="@+id/imgListPlace"
             android:paddingLeft="@dimen/layout_text_list_place_padding"
             android:paddingRight="@dimen/layout_text_list_place_padding"
