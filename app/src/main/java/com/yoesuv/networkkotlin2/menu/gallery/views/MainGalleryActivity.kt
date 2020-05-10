@@ -3,20 +3,20 @@ package com.yoesuv.networkkotlin2.menu.gallery.views
 import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import android.view.MenuItem
+import androidx.lifecycle.ViewModelProvider
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityGalleryBinding
 import com.yoesuv.networkkotlin2.menu.gallery.adapters.GalleryAdapter
 import com.yoesuv.networkkotlin2.menu.gallery.viewmodels.MainGalleryViewModel
 
 /**
- *  Updated by yusuf on 10/15/18.
+ *  Updated by yusuf on 04/19/20.
  */
 class MainGalleryActivity : AppCompatActivity() {
 
@@ -54,7 +54,7 @@ class MainGalleryActivity : AppCompatActivity() {
     private fun setupBinding(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_gallery)
         binding.lifecycleOwner = this
-        viewModel = ViewModelProviders.of(this).get(MainGalleryViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MainGalleryViewModel::class.java)
         binding.gallery = viewModel
     }
 
