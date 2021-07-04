@@ -9,7 +9,7 @@ simple app with MVVM pattern
 
 Home | List | Grid
 -----|-----|-----
-![home](https://i.imgur.com/Jm9bbv9.jpg) | ![list](https://i.imgur.com/jxjsHlj.jpg) | ![grid](https://i.imgur.com/NbGzjsu.jpg)
+![home](https://i.imgur.com/AlgGslz.jpg) | ![list](https://i.imgur.com/zrgXane.jpg) | ![grid](https://i.imgur.com/cjrRePK.jpg)
 
 #### List libraries used in this project ####
 * [Coil](https://coil-kt.github.io/coil/)
