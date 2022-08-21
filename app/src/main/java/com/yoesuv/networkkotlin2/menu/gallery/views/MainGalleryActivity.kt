@@ -54,7 +54,7 @@ class MainGalleryActivity : AppCompatActivity() {
     private fun setupBinding(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_gallery)
         binding.lifecycleOwner = this
-        viewModel = ViewModelProvider(this).get(MainGalleryViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MainGalleryViewModel::class.java]
         binding.gallery = viewModel
     }
 

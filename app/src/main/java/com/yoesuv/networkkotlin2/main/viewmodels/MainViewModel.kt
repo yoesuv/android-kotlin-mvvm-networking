@@ -9,10 +9,12 @@ import com.yoesuv.networkkotlin2.menu.listplace.views.MainListPlaceActivity
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun clickListPlace(view: View) {
-        view.context.startActivity(MainListPlaceActivity.getInstance(view.context))
+        val ctx = view.context
+        ctx.startActivity(MainListPlaceActivity.getInstance(ctx))
     }
 
     fun clickGallery(view: View) {
-        view.context.startActivity(MainGalleryActivity.getInstance(view.context))
+        val ctx = view.context
+        ctx.startActivity(MainGalleryActivity.getInstance(ctx))
     }
 }
