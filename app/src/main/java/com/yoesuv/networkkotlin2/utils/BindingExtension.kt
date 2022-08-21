@@ -14,6 +14,7 @@ fun AppCompatImageView.loadImage(imageUrl: String) {
         .data(imageUrl)
         .crossfade(true)
         .placeholder(R.drawable.placeholder_image)
+        .error(R.drawable.placeholder_error)
         .target(this)
         .build()
     imageLoader.enqueue(request)
