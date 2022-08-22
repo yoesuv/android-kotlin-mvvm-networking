@@ -54,7 +54,7 @@ class MainListPlaceActivity : AppCompatActivity() {
     private fun setupBinding(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list)
         binding.lifecycleOwner = this
-        viewModel = ViewModelProvider(this).get(MainListPlaceViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MainListPlaceViewModel::class.java]
         binding.listPlace = viewModel
     }
 
