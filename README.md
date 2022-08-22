@@ -1,10 +1,10 @@
-## Android Kotlin MVVM Simple Networking 2.1.0 ##
+## Android Kotlin MVVM Simple Networking ##
 
 simple app with MVVM pattern
-* [AndroidX](https://developer.android.com/jetpack/androidx/)
 * [Android Architecture Component](https://developer.android.com/topic/libraries/architecture/)
+* [Data Binding](https://developer.android.com/topic/libraries/data-binding)
 
-[Download APK](https://www.dropbox.com/s/bk0jh9y7n0g4tjp)
+[Download APK](https://www.dropbox.com/s/i6vgw91e0rsdcaf)
 <br/><br/>
 
 Home | List | Grid
