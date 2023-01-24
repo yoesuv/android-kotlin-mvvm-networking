@@ -14,7 +14,7 @@ class ListPlaceRepository {
     private lateinit var requestListPlace: Request
 
     fun getListPlace(onSuccess:(ListPlaceModel) -> Unit, onError:(FuelError) -> Unit) {
-        requestListPlace = Fuel.get(EndPoint.LIST_PLACE).responseObject<ListPlaceModel> { _, _, result ->
+        requestListPlace = Fuel.get(EndPoint.LIST_PLACE).responseObject { _, _, result ->
             result.fold({
                 onSuccess(it)
             }, {

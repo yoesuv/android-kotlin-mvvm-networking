@@ -14,7 +14,7 @@ class GalleryRepository {
     private lateinit var requestGallery: Request
 
     fun getListGallery(onSuccess:(GalleryModel) -> Unit, onError:(FuelError) -> Unit) {
-        requestGallery = Fuel.get(EndPoint.LIST_GALLERY).responseObject<GalleryModel> { _, _, result ->
+        requestGallery = Fuel.get(EndPoint.LIST_GALLERY).responseObject { _, _, result ->
             result.fold({
                 onSuccess(it)
             }, {
