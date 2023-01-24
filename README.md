@@ -15,5 +15,3 @@ Home | List | Grid
 * [Coil](https://coil-kt.github.io/coil/)
 * [Fuel](https://github.com/kittinunf/fuel)
 * [Gson](https://github.com/google/gson)
-
-
