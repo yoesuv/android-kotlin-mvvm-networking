@@ -43,6 +43,20 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    flavorDimensions "default"
+    productFlavors {
+        dev {
+            resValue "string", "app_name", "Network Kotlin DEV"
+            applicationIdSuffix ".dev"
+        }
+        forTest {
+            resValue "string", "app_name", "Network Kotlin TEST"
+            applicationIdSuffix ".test"
+        }
+        production {
+            resValue "string", "app_name", "Network Kotlin2"
+        }
+    }
 }
 
 dependencies {
