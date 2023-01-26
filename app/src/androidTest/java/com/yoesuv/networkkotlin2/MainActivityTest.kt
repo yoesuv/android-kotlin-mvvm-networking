@@ -1,14 +1,10 @@
 package com.yoesuv.networkkotlin2
 
-import android.os.SystemClock
 import androidx.appcompat.widget.AppCompatButton
 import androidx.test.core.app.ActivityScenario
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.action.ViewActions.swipeDown
-import androidx.test.espresso.action.ViewActions.swipeUp
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -38,14 +34,11 @@ class MainActivityTest {
     }
 
     @Test
-    fun startApplication() {
+    fun loadListPlace() {
         ActivityScenario.launch(MainActivity::class.java).onActivity { activity ->
             activity.findViewById<AppCompatButton>(R.id.buttonOne).performClick()
-
             onView(allOf(withId(R.id.recyclerviewListPlace), isDisplayed()))
-
             activity.onBackPressedDispatcher.onBackPressed()
-            activity.findViewById<AppCompatButton>(R.id.buttonTwo).performClick()
         }
 
     }
