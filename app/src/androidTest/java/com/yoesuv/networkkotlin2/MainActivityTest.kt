@@ -34,12 +34,22 @@ class MainActivityTest {
     }
 
     @Test
-    fun loadListPlace() {
-        ActivityScenario.launch(MainActivity::class.java).onActivity { activity ->
+    fun load1ListPlace() {
+        val scenario = ActivityScenario.launch(MainActivity::class.java)
+        scenario.onActivity { activity ->
             activity.findViewById<AppCompatButton>(R.id.buttonOne).performClick()
             onView(allOf(withId(R.id.recyclerviewListPlace), isDisplayed()))
             activity.onBackPressedDispatcher.onBackPressed()
         }
+    }
 
+    @Test
+    fun load2ListGallery() {
+        val scenario = ActivityScenario.launch(MainActivity::class.java)
+        scenario.onActivity { activity ->
+            activity.findViewById<AppCompatButton>(R.id.buttonTwo).performClick()
+            onView(allOf(withId(R.id.recyclerviewGallery), isDisplayed()))
+            activity.onBackPressedDispatcher.onBackPressed()
+        }
     }
 }
