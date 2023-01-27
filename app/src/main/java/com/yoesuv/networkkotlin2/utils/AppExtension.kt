@@ -16,6 +16,9 @@ fun logError(message: String) {
         Log.e(AppData.TAG_ERROR, message)
     }
 }
+fun forTest(): Boolean {
+    return BuildConfig.FLAVOR.equals("forTest", true)
+}
 
 fun debugPrintStackTrace(fuelError: FuelError) {
     if (BuildConfig.DEBUG) {
