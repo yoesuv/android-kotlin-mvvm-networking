@@ -1,10 +1,11 @@
 ## Android Kotlin MVVM Simple Networking ##
 
-simple app with MVVM pattern
+simple app with MVVM pattern, with Espresso basic testing
+
 * [Android Architecture Component](https://developer.android.com/topic/libraries/architecture/)
 * [Data Binding](https://developer.android.com/topic/libraries/data-binding)
 
-[Download APK](https://www.dropbox.com/s/i6vgw91e0rsdcaf)
+[Download APK](https://www.dropbox.com/s/1tn66wl4g6b7gdd)
 <br/><br/>
 
 Home | List | Grid
@@ -16,4 +17,5 @@ Home | List | Grid
 * [Fuel](https://github.com/kittinunf/fuel)
 * [Gson](https://github.com/google/gson)
 
-
+### References ####
+- [UI Automator](https://developer.android.com/training/testing/other-components/ui-automator)
