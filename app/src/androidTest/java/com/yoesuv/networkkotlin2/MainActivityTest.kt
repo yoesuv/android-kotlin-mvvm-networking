@@ -7,10 +7,9 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.swipeUp
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.action.ViewActions.*
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -30,7 +29,7 @@ import java.util.concurrent.TimeUnit
 @LargeTest
 class MainActivityTest {
 
-    private val delay = 1000L
+    private val delay = 0L
     private lateinit var context: Context
     private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
@@ -50,6 +49,7 @@ class MainActivityTest {
 
     @Test
     fun load1MainTest() {
+        onView(withText(context.getString(R.string.pilih_menu))).check(matches(isDisplayed()))
         onView(withId(R.id.buttonOne)).perform(click())
         SystemClock.sleep(delay)
         device.pressBack()
@@ -57,21 +57,22 @@ class MainActivityTest {
         onView(withId(R.id.buttonTwo)).perform(click())
         SystemClock.sleep(delay)
         device.pressBack()
-        SystemClock.sleep(delay)
     }
 
-    /*@Test
+    @Test
     fun load2ListPlaceTest() {
         onView(withId(R.id.buttonOne)).perform(click())
         SystemClock.sleep(delay)
-        //onView(allOf(withId(R.id.recyclerviewListPlace), isDisplayed())).perform(swipeUp())
+        onView(allOf(withId(R.id.recyclerviewListPlace), isDisplayed()))
+            .perform(swipeDown())
+            .perform(swipeUp())
         /*val scenario = ActivityScenario.launch(MainActivity::class.java)
         scenario.onActivity { activity ->
             activity.findViewById<AppCompatButton>(R.id.buttonOne).performClick()
             onView(allOf(withId(R.id.recyclerviewListPlace), isDisplayed()))
             activity.onBackPressedDispatcher.onBackPressed()
         }*/
-    }*/
+    }
 
     /*@Test
     fun load3ListGalleryTest() {
