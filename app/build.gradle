@@ -11,6 +11,7 @@ android {
         versionCode 5
         versionName "2.1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments clearPackageData: 'true'
         setProperty("archivesBaseName", applicationId+"-v"+versionCode+"("+versionName+")")
     }
     buildTypes {
@@ -56,6 +57,9 @@ android {
         production {
             resValue "string", "app_name", "Network Kotlin2"
         }
+    }
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
 }
 
