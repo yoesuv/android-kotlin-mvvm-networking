@@ -2,10 +2,7 @@ package com.yoesuv.networkkotlin2
 
 import android.content.Context
 import android.os.SystemClock
-import androidx.appcompat.widget.AppCompatButton
-import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.IdlingPolicies
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -64,19 +61,18 @@ class MainActivityTest {
         onView(allOf(withId(R.id.recyclerviewListPlace), isDisplayed()))
             .perform(swipeDown())
             .perform(swipeUp())
+        SystemClock.sleep(delay)
         device.pressBack()
     }
 
-    /*@Test
+    @Test
     fun load3ListGalleryTest() {
         onView(withId(R.id.buttonTwo)).perform(click())
         SystemClock.sleep(delay)
-        //onView(allOf(withId(R.id.recyclerviewGallery), isDisplayed())).perform(swipeUp())
-        /*val scenario = ActivityScenario.launch(MainActivity::class.java)
-        scenario.onActivity { activity ->
-            activity.findViewById<AppCompatButton>(R.id.buttonTwo).performClick()
-            onView(allOf(withId(R.id.recyclerviewGallery), isDisplayed()))
-            activity.onBackPressedDispatcher.onBackPressed()
-        }*/
-    }*/
+        onView(allOf(withId(R.id.recyclerviewGallery), isDisplayed()))
+            .perform(swipeDown())
+            .perform(swipeUp())
+        SystemClock.sleep(delay)
+        device.pressBack()
+    }
 }
