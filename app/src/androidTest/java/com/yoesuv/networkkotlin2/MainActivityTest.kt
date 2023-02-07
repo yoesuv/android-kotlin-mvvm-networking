@@ -19,17 +19,15 @@ import com.yoesuv.networkkotlin2.main.views.MainActivity
 import com.yoesuv.networkkotlin2.utils.IdlingResource
 import org.hamcrest.Matchers.allOf
 import org.junit.*
-import org.junit.runner.OrderWith
 import org.junit.runner.RunWith
 import org.junit.runners.MethodSorters
-import java.util.concurrent.TimeUnit
 
 @RunWith(AndroidJUnit4::class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @LargeTest
 class MainActivityTest {
 
-    private val delay = 0L
+    private val delay = 1000L
     private lateinit var context: Context
     private val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
 
@@ -66,12 +64,7 @@ class MainActivityTest {
         onView(allOf(withId(R.id.recyclerviewListPlace), isDisplayed()))
             .perform(swipeDown())
             .perform(swipeUp())
-        /*val scenario = ActivityScenario.launch(MainActivity::class.java)
-        scenario.onActivity { activity ->
-            activity.findViewById<AppCompatButton>(R.id.buttonOne).performClick()
-            onView(allOf(withId(R.id.recyclerviewListPlace), isDisplayed()))
-            activity.onBackPressedDispatcher.onBackPressed()
-        }*/
+        device.pressBack()
     }
 
     /*@Test
