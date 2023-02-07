@@ -6,7 +6,7 @@ execute `./gradlew connectedForTestDebugAndroidTest`
 * [Android Architecture Component](https://developer.android.com/topic/libraries/architecture/)
 * [Data Binding](https://developer.android.com/topic/libraries/data-binding)
 
-[Download APK](https://www.dropbox.com/s/1tn66wl4g6b7gdd)
+[Download APK](https://www.dropbox.com/s/i14kl84uqks2hb6)
 <br/><br/>
 
 Home | List | Grid
