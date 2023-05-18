@@ -38,11 +38,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     flavorDimensions "default"
     productFlavors {
@@ -58,6 +58,7 @@ android {
             resValue "string", "app_name", "Network Kotlin2"
         }
     }
+    namespace 'com.yoesuv.networkkotlin2'
 }
 
 dependencies {
