@@ -2,10 +2,8 @@ package com.yoesuv.networkkotlin2.menu.gallery.views
 
 import android.content.Context
 import android.content.Intent
-import androidx.lifecycle.Observer
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import android.view.MenuItem
@@ -14,6 +12,7 @@ import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityGalleryBinding
 import com.yoesuv.networkkotlin2.menu.gallery.adapters.GalleryAdapter
 import com.yoesuv.networkkotlin2.menu.gallery.viewmodels.MainGalleryViewModel
+import com.yoesuv.networkkotlin2.utils.swipeColors
 
 /**
  *  Updated by yusuf on 04/19/20.
@@ -73,19 +72,16 @@ class MainGalleryActivity : AppCompatActivity() {
     }
 
     private fun setupSwipeRefresh(){
-        binding.swipeRefreshGallery.setColorSchemeColors(
-                ContextCompat.getColor(this, R.color.colorPrimary),
-                ContextCompat.getColor(this, R.color.colorPrimaryDark)
-        )
+        binding.swipeRefreshGallery.setColorSchemeColors(*swipeColors())
         binding.swipeRefreshGallery.setOnRefreshListener {
             viewModel.requestListGallery()
         }
     }
 
     private fun observeData(){
-        viewModel.liveDataGallery.observe(this, Observer { galleryModel ->
+        viewModel.liveDataGallery.observe(this) { galleryModel ->
             adapter.submitList(galleryModel.listData)
-        })
+        }
     }
 
 }

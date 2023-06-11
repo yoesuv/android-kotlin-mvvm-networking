@@ -3,7 +3,10 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
+
+    namespace 'com.yoesuv.networkkotlin2'
     compileSdkVersion 33
+
     defaultConfig {
         applicationId "com.yoesuv.networkkotlin2"
         minSdkVersion 21
@@ -58,7 +61,6 @@ android {
             resValue "string", "app_name", "Network Kotlin2"
         }
     }
-    namespace 'com.yoesuv.networkkotlin2'
 }
 
 dependencies {
