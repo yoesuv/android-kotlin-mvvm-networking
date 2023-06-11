@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -10,10 +10,5 @@
 
     <!-- Toolbar theme -->
     <style name="toolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-
-    <!-- primary button theme -->
-    <style name="buttonPrimaryTheme" parent="Widget.AppCompat.Button.Colored">
-        <item name="colorButtonNormal">@color/colorPrimary</item>
-    </style>
 
 </resources>
