@@ -80,6 +80,8 @@ dependencies {
 
     implementation "com.github.kittinunf.fuel:fuel:$fuelVersion"
     implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
 
     implementation("io.coil-kt:coil:$coilVersion")
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion"
