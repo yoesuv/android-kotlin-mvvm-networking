@@ -25,10 +25,10 @@ class MainGalleryActivity : AppCompatActivity() {
         }
     }
 
-    private lateinit var binding:ActivityGalleryBinding
-    private lateinit var viewModel:MainGalleryViewModel
+    private lateinit var binding: ActivityGalleryBinding
+    private lateinit var viewModel: MainGalleryViewModel
 
-    private lateinit var adapter:GalleryAdapter
+    private lateinit var adapter: GalleryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,41 +44,41 @@ class MainGalleryActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId==android.R.id.home){
+        if (item.itemId == android.R.id.home) {
             onBackPressedDispatcher.onBackPressed()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setupBinding(){
+    private fun setupBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_gallery)
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this)[MainGalleryViewModel::class.java]
         binding.gallery = viewModel
     }
 
-    private fun setupToolbar(){
+    private fun setupToolbar() {
         setSupportActionBar(binding.toolbarGallery.toolbarInclude)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.gallery_wisata)
         supportActionBar?.elevation = 5f
     }
 
-    private fun setupRecycler(){
+    private fun setupRecycler() {
         val lManager = GridLayoutManager(this, 3)
         adapter = GalleryAdapter()
         binding.recyclerviewGallery.layoutManager = lManager
         binding.recyclerviewGallery.adapter = adapter
     }
 
-    private fun setupSwipeRefresh(){
+    private fun setupSwipeRefresh() {
         binding.swipeRefreshGallery.setColorSchemeColors(*swipeColors())
         binding.swipeRefreshGallery.setOnRefreshListener {
             viewModel.requestListGallery()
         }
     }
 
-    private fun observeData(){
+    private fun observeData() {
         viewModel.liveDataGallery.observe(this) { galleryModel ->
             adapter.submitList(galleryModel.listData)
         }

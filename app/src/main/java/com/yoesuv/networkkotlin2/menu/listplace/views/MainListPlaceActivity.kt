@@ -25,10 +25,10 @@ class MainListPlaceActivity : AppCompatActivity() {
         }
     }
 
-    private lateinit var binding:ActivityListBinding
-    private lateinit var viewModel:MainListPlaceViewModel
+    private lateinit var binding: ActivityListBinding
+    private lateinit var viewModel: MainListPlaceViewModel
 
-    private lateinit var listPlaceAdapter:ListPlaceAdapter
+    private lateinit var listPlaceAdapter: ListPlaceAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,41 +44,41 @@ class MainListPlaceActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId==android.R.id.home){
+        if (item.itemId == android.R.id.home) {
             onBackPressedDispatcher.onBackPressed()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setupBinding(){
+    private fun setupBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list)
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this)[MainListPlaceViewModel::class.java]
         binding.listPlace = viewModel
     }
 
-    private fun setupToolbar(){
+    private fun setupToolbar() {
         setSupportActionBar(binding.toolbarList.toolbarInclude)
         supportActionBar?.elevation = 5f
         supportActionBar?.title = getString(R.string.list_wisata)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    private fun setupRecycler(){
+    private fun setupRecycler() {
         val lManager = LinearLayoutManager(this)
         binding.recyclerviewListPlace.layoutManager = lManager
         listPlaceAdapter = ListPlaceAdapter()
         binding.recyclerviewListPlace.adapter = listPlaceAdapter
     }
 
-    private fun setupSwipeRefresh(){
+    private fun setupSwipeRefresh() {
         binding.swipeRefreshListPlace.setColorSchemeColors(*swipeColors())
         binding.swipeRefreshListPlace.setOnRefreshListener {
             viewModel.requestListPlace()
         }
     }
 
-    private fun observeData(){
+    private fun observeData() {
         viewModel.listData.observe(this) { listPlace ->
             listPlaceAdapter.submitList(listPlace.data)
         }

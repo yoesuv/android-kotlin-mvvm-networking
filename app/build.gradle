@@ -79,8 +79,6 @@ dependencies {
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.3.0-alpha02'
 
     implementation "com.github.kittinunf.fuel:fuel:$fuelVersion"
-    implementation "com.github.kittinunf.fuel:fuel-android:$fuelVersion"
-    implementation "com.github.kittinunf.fuel:fuel-gson:$fuelVersion"
     implementation "com.google.code.gson:gson:$gsonVersion"
 
     implementation("io.coil-kt:coil:$coilVersion")
