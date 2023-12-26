@@ -20,7 +20,13 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -dontwarn javax.annotation.**
--keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+
+-keeppackagenames okhttp3.internal.publicsuffix.*
+-adaptresourcefilenames okhttp3/internal/publicsuffix/PublicSuffixDatabase.gz
+
 -dontwarn org.codehaus.mojo.animal_sniffer.*
--dontwarn okhttp3.internal.platform.ConscryptPlatform
--dontwarn com.squareup.okhttp.**
+
+-dontwarn okhttp3.internal.platform.**
+-dontwarn org.conscrypt.**
+-dontwarn org.bouncycastle.**
+-dontwarn org.openjsse.**
