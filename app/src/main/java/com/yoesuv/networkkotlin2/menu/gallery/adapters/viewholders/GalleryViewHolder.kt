@@ -15,9 +15,10 @@ class GalleryViewHolder(val binding: ItemGalleryBinding) : RecyclerView.ViewHold
     }
 
     companion object {
-        fun from(parent: ViewGroup) : GalleryViewHolder {
+        fun from(parent: ViewGroup): GalleryViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
-            val binding: ItemGalleryBinding = ItemGalleryBinding.inflate(layoutInflater, parent, false)
+            val binding: ItemGalleryBinding =
+                ItemGalleryBinding.inflate(layoutInflater, parent, false)
             return GalleryViewHolder(binding)
         }
     }

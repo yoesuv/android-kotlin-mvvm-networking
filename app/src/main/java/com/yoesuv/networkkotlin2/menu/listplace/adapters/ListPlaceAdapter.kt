@@ -23,12 +23,18 @@ class ListPlaceAdapter : ListAdapter<ListPlaceModel.Place, PlaceViewHolder>(list
 
     companion object {
         val listPlaceCallback = object : DiffUtil.ItemCallback<ListPlaceModel.Place>() {
-            override fun areItemsTheSame(oldItem: ListPlaceModel.Place, newItem: ListPlaceModel.Place): Boolean {
+            override fun areItemsTheSame(
+                oldItem: ListPlaceModel.Place,
+                newItem: ListPlaceModel.Place
+            ): Boolean {
                 return oldItem.nama == newItem.nama
             }
 
             @SuppressLint("DiffUtilEquals")
-            override fun areContentsTheSame(oldItem: ListPlaceModel.Place, newItem: ListPlaceModel.Place): Boolean {
+            override fun areContentsTheSame(
+                oldItem: ListPlaceModel.Place,
+                newItem: ListPlaceModel.Place
+            ): Boolean {
                 return oldItem == newItem
             }
 
