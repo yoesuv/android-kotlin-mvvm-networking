@@ -10,18 +10,20 @@ import com.yoesuv.networkkotlin2.networks.ListPlaceRepository
 /**
  *  Updated by yusuf on 11/28/19.
  */
-class MainListPlaceViewModel(application: Application): AndroidViewModel(application) {
+class MainListPlaceViewModel(application: Application) : AndroidViewModel(application) {
 
     private val listPlaceRepository = ListPlaceRepository()
 
     var listData: MutableLiveData<ListPlaceModel> = MutableLiveData()
     var liveLoading: MutableLiveData<Boolean> = MutableLiveData(false)
 
-    fun requestListPlace(){
+    fun requestListPlace() {
         liveLoading.postValue(true)
-        listPlaceRepository.getListPlace(viewModelScope) {
+        listPlaceRepository.getListPlace(viewModelScope, { data ->
             liveLoading.postValue(false)
-            listData.postValue(it)
+            listData.postValue(data)
+        }) {
+            liveLoading.postValue(false)
         }
     }
 

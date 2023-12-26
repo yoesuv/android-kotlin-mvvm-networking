@@ -19,10 +19,12 @@ class MainGalleryViewModel(application: Application) : AndroidViewModel(applicat
 
     fun requestListGallery() {
         liveLoading.postValue(true)
-        galleryRepository.getListGallery(viewModelScope) {
+        galleryRepository.getListGallery(viewModelScope, { data ->
             liveLoading.postValue(false)
-            liveDataGallery.postValue(it)
-        }
+            liveDataGallery.postValue(data)
+        }, {
+            liveLoading.postValue(false)
+        })
     }
 
 }

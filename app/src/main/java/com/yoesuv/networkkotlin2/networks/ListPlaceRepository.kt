@@ -10,16 +10,23 @@ import kotlinx.coroutines.launch
 
 class ListPlaceRepository {
 
-    fun getListPlace(scope: CoroutineScope, onSuccess: (ListPlaceModel) -> Unit) {
+    fun getListPlace(
+        scope: CoroutineScope,
+        onSuccess: (ListPlaceModel) -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
         scope.launch {
             val request = Request.Builder().url(AppData.BASE_URL + EndPoint.LIST_PLACE)
                 .build()
-            val response = NetworkService.fuel.get(request)
-            if (response.statusCode == 200) {
+            try {
+                val response = NetworkService.fuel.get(request)
                 val gson = Gson()
                 val data = gson.fromJson(response.body, ListPlaceModel::class.java)
                 onSuccess(data)
+            } catch (t: Throwable) {
+                onError(t)
             }
+
         }
     }
 
