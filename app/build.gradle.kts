@@ -77,6 +77,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.swiperefreshlayout)
 
     implementation("com.android.support.test.espresso:espresso-idling-resource:3.0.2")
     testImplementation(libs.junit)
@@ -86,7 +87,9 @@ dependencies {
     androidTestImplementation("androidx.test.uiautomator:uiautomator:2.3.0-alpha02")
 
     implementation(libs.androidx.lifecycle)
-    implementation("io.coil-kt:coil:2.3.0")
+    implementation(libs.coil)
+    implementation(libs.coil.core)
+    implementation(libs.coil.network)
 
     implementation("com.github.kittinunf.fuel:fuel:3.0.0-alpha1")
     implementation("com.google.code.gson:gson:2.10.1")
