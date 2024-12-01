@@ -17,7 +17,7 @@ android {
         versionName = "2.1.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        //testInstrumentationRunnerArguments clearPackageData: 'true'
+        testInstrumentationRunnerArguments["clearPackageData"] = "true"
         setProperty("archivesBaseName", "$applicationId-v$versionCode($versionName)")
     }
 
@@ -35,9 +35,8 @@ android {
     sourceSets {
         getByName("main") {
             res.srcDirs("src/main/res")
-            res.srcDirs("src/main/res-menu")
-            res.srcDirs("src/main/res-menu/list")
-            res.srcDirs("src/main/res-menu/gallery")
+            res.srcDirs("src/main/res-gallery")
+            res.srcDirs("src/main/res-list-place")
         }
     }
 
