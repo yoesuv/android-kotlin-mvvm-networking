@@ -91,7 +91,7 @@ dependencies {
     implementation(libs.coil.network)
 
     implementation("com.github.kittinunf.fuel:fuel:3.0.0-alpha1")
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation(libs.gson)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)
 }
