@@ -7,6 +7,9 @@ import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.utils.IdlingResource
 import com.yoesuv.networkkotlin2.utils.forTest
 import fuel.Request
+import io.ktor.client.call.body
+import io.ktor.client.request.get
+import io.ktor.http.encodedPath
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -41,6 +44,14 @@ class ListPlaceRepository {
             }
 
         }
+    }
+
+    suspend fun getListPlace2(): ListPlaceModel {
+        return client.get {
+            url {
+                encodedPath = EndPoint.LIST_PLACE
+            }
+        }.body()
     }
 
 }
