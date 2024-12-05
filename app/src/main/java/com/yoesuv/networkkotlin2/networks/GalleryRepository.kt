@@ -9,9 +9,9 @@ import com.yoesuv.networkkotlin2.utils.forTest
 import fuel.Request
 import io.ktor.client.call.body
 import io.ktor.client.request.get
-import io.ktor.client.request.url
 import io.ktor.http.encodedPath
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 
 class GalleryRepository {
@@ -47,12 +47,18 @@ class GalleryRepository {
         }
     }
 
-    suspend fun getListGallery2(): GalleryModel {
-        return client.get {
-            url {
-                encodedPath = EndPoint.LIST_GALLERY
+    fun getListGallery2() = flow {
+        try {
+            val result = client.get {
+                url {
+                    encodedPath = EndPoint.LIST_GALLERY
+                }
             }
-        }.body()
+            emit(result.body())
+        } catch (e: Exception) {
+            emit(GalleryModel())
+            e.printStackTrace()
+        }
     }
 
 }

@@ -6,7 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.yoesuv.networkkotlin2.menu.gallery.models.GalleryModel
 import com.yoesuv.networkkotlin2.networks.GalleryRepository
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 /**
  *  Created by yusuf on 1/14/18.
@@ -20,11 +21,10 @@ class MainGalleryViewModel(application: Application) : AndroidViewModel(applicat
 
     fun requestListGallery() {
         liveLoading.postValue(true)
-        viewModelScope.launch {
-            val galleries = galleryRepository.getListGallery2()
+        galleryRepository.getListGallery2().onEach {
             liveLoading.postValue(false)
-            liveDataGallery.postValue(galleries)
-        }
+            liveDataGallery.postValue(it)
+        }.launchIn(viewModelScope)
     }
 
 }

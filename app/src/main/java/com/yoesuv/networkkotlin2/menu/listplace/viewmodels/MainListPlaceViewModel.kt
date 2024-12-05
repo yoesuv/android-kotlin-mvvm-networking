@@ -21,9 +21,10 @@ class MainListPlaceViewModel(application: Application) : AndroidViewModel(applic
     fun requestListPlace() {
         liveLoading.postValue(true)
         viewModelScope.launch {
-            val places = listPlaceRepository.getListPlace2()
-            liveLoading.postValue(false)
-            listData.postValue(places)
+            listPlaceRepository.getListPlace2().collect { places ->
+                liveLoading.postValue(false)
+                listData.postValue(places)
+            }
         }
     }
 
