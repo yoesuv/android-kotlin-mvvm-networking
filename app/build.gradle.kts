@@ -94,4 +94,9 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)
+
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.serialization.gson)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.client.logging)
 }
