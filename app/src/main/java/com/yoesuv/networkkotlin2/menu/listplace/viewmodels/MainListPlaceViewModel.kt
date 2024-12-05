@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.networks.ListPlaceRepository
+import kotlinx.coroutines.launch
 
 /**
  *  Updated by yusuf on 11/28/19.
@@ -19,11 +20,10 @@ class MainListPlaceViewModel(application: Application) : AndroidViewModel(applic
 
     fun requestListPlace() {
         liveLoading.postValue(true)
-        listPlaceRepository.getListPlace(viewModelScope, { data ->
+        viewModelScope.launch {
+            val places = listPlaceRepository.getListPlace2()
             liveLoading.postValue(false)
-            listData.postValue(data)
-        }) {
-            liveLoading.postValue(false)
+            listData.postValue(places)
         }
     }
 

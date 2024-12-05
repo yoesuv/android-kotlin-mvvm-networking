@@ -7,6 +7,10 @@ import com.yoesuv.networkkotlin2.menu.gallery.models.GalleryModel
 import com.yoesuv.networkkotlin2.utils.IdlingResource
 import com.yoesuv.networkkotlin2.utils.forTest
 import fuel.Request
+import io.ktor.client.call.body
+import io.ktor.client.request.get
+import io.ktor.client.request.url
+import io.ktor.http.encodedPath
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -41,6 +45,14 @@ class GalleryRepository {
             }
 
         }
+    }
+
+    suspend fun getListGallery2(): GalleryModel {
+        return client.get {
+            url {
+                encodedPath = EndPoint.LIST_GALLERY
+            }
+        }.body()
     }
 
 }
