@@ -9,8 +9,8 @@ import com.google.gson.annotations.SerializedName
  */
 @Keep
 class GalleryModel(
-    @Expose @SerializedName("status_code") val statusCode: Int?,
-    @Expose @SerializedName("data") val listData: MutableList<Gallery>?
+    @Expose @SerializedName("status_code") val statusCode: Int? = 0,
+    @Expose @SerializedName("data") val listData: MutableList<Gallery>? = mutableListOf()
 ) {
     @Keep
     class Gallery(
