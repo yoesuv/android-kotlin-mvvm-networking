@@ -12,6 +12,7 @@ import io.ktor.client.request.get
 import io.ktor.http.encodedPath
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.flow
 
 class ListPlaceRepository {
 
@@ -46,12 +47,18 @@ class ListPlaceRepository {
         }
     }
 
-    suspend fun getListPlace2(): ListPlaceModel {
-        return client.get {
-            url {
-                encodedPath = EndPoint.LIST_PLACE
+    fun getListPlace2() = flow {
+        try {
+            val result = client.get {
+                url {
+                    encodedPath = EndPoint.LIST_PLACE
+                }
             }
-        }.body()
+            emit(result.body())
+        } catch (e: Exception) {
+            emit(ListPlaceModel())
+            e.printStackTrace()
+        }
     }
 
 }
