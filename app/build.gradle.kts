@@ -7,12 +7,12 @@ plugins {
 android {
 
     namespace = "com.yoesuv.networkkotlin2"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.yoesuv.networkkotlin2"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 8
         versionName = "2.1.5"
 
