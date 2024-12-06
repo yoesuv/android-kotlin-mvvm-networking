@@ -77,6 +77,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.swiperefreshlayout)
+    implementation(libs.androidx.lifecycle)
 
     implementation("com.android.support.test.espresso:espresso-idling-resource:3.0.2")
     testImplementation(libs.junit)
@@ -85,16 +86,11 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation("androidx.test.uiautomator:uiautomator:2.3.0-alpha02")
 
-    implementation(libs.androidx.lifecycle)
     implementation(libs.coil)
     implementation(libs.coil.core)
     implementation(libs.coil.network)
 
-    implementation("com.github.kittinunf.fuel:fuel:3.0.0-alpha1")
     implementation(libs.gson)
-    implementation(libs.okhttp)
-    implementation(libs.okhttp.logging)
-
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.serialization.gson)
     implementation(libs.ktor.client.content.negotiation)
