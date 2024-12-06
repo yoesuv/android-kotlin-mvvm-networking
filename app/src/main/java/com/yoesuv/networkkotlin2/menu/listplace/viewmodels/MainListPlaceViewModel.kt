@@ -6,7 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.networks.ListPlaceRepository
-import kotlinx.coroutines.launch
+import com.yoesuv.networkkotlin2.networks.Resource
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 /**
  *  Updated by yusuf on 11/28/19.
@@ -19,13 +21,22 @@ class MainListPlaceViewModel(application: Application) : AndroidViewModel(applic
     var liveLoading: MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun requestListPlace() {
-        liveLoading.postValue(true)
-        viewModelScope.launch {
-            listPlaceRepository.getListPlace2().collect { places ->
-                liveLoading.postValue(false)
-                listData.postValue(places)
+        listPlaceRepository.getListPlace().onEach { res ->
+            when (res) {
+                is Resource.Loading -> {
+                    liveLoading.postValue(true)
+                }
+
+                is Resource.Success -> {
+                    liveLoading.postValue(false)
+                    listData.postValue(res.data)
+                }
+
+                is Resource.Error -> {
+                    liveLoading.postValue(false)
+                }
             }
-        }
+        }.launchIn(viewModelScope)
     }
 
 }
