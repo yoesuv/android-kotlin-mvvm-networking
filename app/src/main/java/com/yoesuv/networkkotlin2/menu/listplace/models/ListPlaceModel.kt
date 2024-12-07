@@ -9,8 +9,8 @@ import com.google.gson.annotations.SerializedName
  */
 @Keep
 data class ListPlaceModel(
-    @Expose @SerializedName("status_code") val statusCode: Int?,
-    @Expose @SerializedName("data") val data: MutableList<Place>?
+    @Expose @SerializedName("status_code") val statusCode: Int? = 0,
+    @Expose @SerializedName("data") val data: MutableList<Place>? = mutableListOf()
 ) {
     @Keep
     data class Place(

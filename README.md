@@ -6,7 +6,7 @@ execute `./gradlew connectedForTestDebugAndroidTest`
 * [Android Architecture Component](https://developer.android.com/topic/libraries/architecture/)
 * [Data Binding](https://developer.android.com/topic/libraries/data-binding)
 
-[Download APK](https://e.pcloud.link/publink/show?code=XZeGx1ZDE22VWBHfTHNPyYKQ0W2rkOH49GX)
+[Download APK](https://e.pcloud.link/publink/show?code=XZtgXwZ2C8DuP4RJNugmxJiEGijqR2SUHv7)
 <br/><br/>
 
 Home | List | Grid
@@ -15,8 +15,8 @@ Home | List | Grid
 
 #### List libraries used in this project ####
 * [Coil](https://coil-kt.github.io/coil/)
-* [Fuel](https://github.com/kittinunf/fuel)
 * [Gson](https://github.com/google/gson)
+* [Ktor](https://ktor.io/)
 
 ### References ####
 - [UI Automator](https://developer.android.com/training/testing/other-components/ui-automator)
