@@ -7,16 +7,18 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import android.view.MenuItem
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityGalleryBinding
 import com.yoesuv.networkkotlin2.menu.gallery.adapters.GalleryAdapter
 import com.yoesuv.networkkotlin2.menu.gallery.viewmodels.MainGalleryViewModel
 import com.yoesuv.networkkotlin2.utils.swipeColors
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  *  Updated by yusuf on 04/19/20.
  */
+@AndroidEntryPoint
 class MainGalleryActivity : AppCompatActivity() {
 
     companion object {
@@ -26,7 +28,7 @@ class MainGalleryActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityGalleryBinding
-    private lateinit var viewModel: MainGalleryViewModel
+    private val viewModel: MainGalleryViewModel by viewModels()
 
     private lateinit var adapter: GalleryAdapter
 
@@ -53,7 +55,6 @@ class MainGalleryActivity : AppCompatActivity() {
     private fun setupBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_gallery)
         binding.lifecycleOwner = this
-        viewModel = ViewModelProvider(this)[MainGalleryViewModel::class.java]
         binding.gallery = viewModel
     }
 
