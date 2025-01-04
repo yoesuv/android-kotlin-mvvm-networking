@@ -90,6 +90,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.lifecycle)
+    implementation(libs.androidx.activity)
 
     implementation(libs.espresso.idling)
     testImplementation(libs.junit)
