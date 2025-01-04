@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.jetbrainsKotlinKapt)
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
@@ -13,8 +14,8 @@ android {
         applicationId = "com.yoesuv.networkkotlin2"
         minSdk = 21
         targetSdk = 35
-        versionCode = 8
-        versionName = "2.1.5"
+        versionCode = 9
+        versionName = "2.1.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments["clearPackageData"] = "true"
@@ -68,12 +69,17 @@ android {
             resValue("string", "app_name", "Network Kotlin2 DEV")
             applicationIdSuffix = ".dev"
             dimension = "default"
+            isDefault = true
         }
         create("production") {
             resValue("string", "app_name", "Network Kotlin2")
             dimension = "default"
         }
     }
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 dependencies {
@@ -102,4 +108,7 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.okhttp)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }
