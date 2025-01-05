@@ -1,5 +1,6 @@
 package com.yoesuv.networkkotlin2
 
+import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -12,6 +13,8 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        val response = JsonParser.stringToObject("list_place.json", ListPlaceModel::class.java)
+        println("Response # ${response.data?.size}")
+        assertEquals(3, response.data?.size)
     }
 }
