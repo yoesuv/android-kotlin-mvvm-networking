@@ -2,6 +2,7 @@ package com.yoesuv.networkkotlin2.di
 
 import com.yoesuv.networkkotlin2.networks.GalleryRepository
 import com.yoesuv.networkkotlin2.networks.ListPlaceRepository
+import com.yoesuv.networkkotlin2.networks.ListPlaceRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +16,7 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideListPlaceRepository(): ListPlaceRepository {
-        return ListPlaceRepository()
+        return ListPlaceRepositoryImpl()
     }
 
     @Provides
