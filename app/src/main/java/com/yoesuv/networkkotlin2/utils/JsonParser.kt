@@ -1,4 +1,4 @@
-package com.yoesuv.networkkotlin2
+package com.yoesuv.networkkotlin2.utils
 
 import com.google.gson.Gson
 

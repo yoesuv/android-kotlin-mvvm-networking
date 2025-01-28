@@ -1,12 +1,12 @@
 package com.yoesuv.networkkotlin2
 
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
+import com.yoesuv.networkkotlin2.utils.JsonParser
 import org.junit.Test
 
 import org.junit.Assert.*
 import org.junit.FixMethodOrder
 import org.junit.runners.MethodSorters
-
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
