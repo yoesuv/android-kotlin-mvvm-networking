@@ -44,6 +44,7 @@ ktor-serialization-gson = { module = "io.ktor:ktor-serialization-gson", version.
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorClient" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
+hilt-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hiltAndroid" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
