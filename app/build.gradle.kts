@@ -76,6 +76,12 @@ android {
             dimension = "default"
         }
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 kapt {
@@ -94,6 +100,7 @@ dependencies {
 
     implementation(libs.espresso.idling)
     testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
     androidTestImplementation(libs.androidx.rules)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
