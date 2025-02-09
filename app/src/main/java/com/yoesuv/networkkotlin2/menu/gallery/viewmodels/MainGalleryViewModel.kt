@@ -1,8 +1,7 @@
 package com.yoesuv.networkkotlin2.menu.gallery.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yoesuv.networkkotlin2.menu.gallery.models.GalleryModel
 import com.yoesuv.networkkotlin2.networks.GalleryRepository
@@ -17,9 +16,8 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class MainGalleryViewModel @Inject constructor(
-    application: Application,
     private val galleryRepository: GalleryRepository
-) : AndroidViewModel(application) {
+) : ViewModel() {
 
     var liveDataGallery: MutableLiveData<GalleryModel> = MutableLiveData()
     var liveLoading: MutableLiveData<Boolean> = MutableLiveData()

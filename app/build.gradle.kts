@@ -101,6 +101,7 @@ dependencies {
     implementation(libs.espresso.idling)
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
+    testImplementation(libs.core.testing)
     androidTestImplementation(libs.androidx.rules)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

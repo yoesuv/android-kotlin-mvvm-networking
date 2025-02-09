@@ -19,10 +19,12 @@ gson = "2.11.0"
 ktorClient = "3.0.1"
 hiltAndroid = "2.51.1"
 robolectric = "4.14"
+coreTesting = "2.2.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
