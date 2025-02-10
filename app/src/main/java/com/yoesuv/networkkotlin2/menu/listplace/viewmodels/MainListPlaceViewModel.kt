@@ -1,8 +1,7 @@
 package com.yoesuv.networkkotlin2.menu.listplace.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.networks.ListPlaceRepository
@@ -17,9 +16,8 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class MainListPlaceViewModel @Inject constructor(
-    application: Application,
     private val listPlaceRepository: ListPlaceRepository,
-) : AndroidViewModel(application) {
+) : ViewModel() {
 
     var listData: MutableLiveData<ListPlaceModel> = MutableLiveData()
     var liveLoading: MutableLiveData<Boolean> = MutableLiveData(false)
