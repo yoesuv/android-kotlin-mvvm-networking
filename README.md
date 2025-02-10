@@ -1,12 +1,13 @@
 ## Android Kotlin MVVM Simple Networking ##
 
 simple app with MVVM pattern, with Espresso basic testing  
-execute `./gradlew connectedForTestDebugAndroidTest`
+execute `./gradlew connectedForTestDebugAndroidTest` (make sure you have connected device) 
+execute `./gradlew testDevDebugUnitTest` (unit test)
 
 * [Android Architecture Component](https://developer.android.com/topic/libraries/architecture/)
 * [Data Binding](https://developer.android.com/topic/libraries/data-binding)
 
-[Download APK](https://e.pcloud.link/publink/show?code=XZtgXwZ2C8DuP4RJNugmxJiEGijqR2SUHv7)
+[Download APK](https://e.pcloud.link/publink/show?code=XZPtUKZiRkEyAds5hhAwYahgYiitmDLHeyy)
 <br/><br/>
 
 Home | List | Grid
