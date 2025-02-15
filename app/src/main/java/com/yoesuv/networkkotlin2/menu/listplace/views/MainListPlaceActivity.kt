@@ -6,17 +6,21 @@ import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityListBinding
 import com.yoesuv.networkkotlin2.menu.listplace.adapters.ListPlaceAdapter
 import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.MainListPlaceViewModel
+import com.yoesuv.networkkotlin2.utils.handleEdgeToEdge
+import com.yoesuv.networkkotlin2.utils.hideStatusBar
 import com.yoesuv.networkkotlin2.utils.swipeColors
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  *  Updated by yusuf on 04/19/20.
  */
+@AndroidEntryPoint
 class MainListPlaceActivity : AppCompatActivity() {
 
     companion object {
@@ -26,7 +30,7 @@ class MainListPlaceActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityListBinding
-    private lateinit var viewModel: MainListPlaceViewModel
+    private val viewModel: MainListPlaceViewModel by viewModels()
 
     private lateinit var listPlaceAdapter: ListPlaceAdapter
 
@@ -37,6 +41,9 @@ class MainListPlaceActivity : AppCompatActivity() {
         setupToolbar()
         setupRecycler()
         setupSwipeRefresh()
+
+        binding.root.handleEdgeToEdge()
+        hideStatusBar()
 
         viewModel.requestListPlace()
 
@@ -53,7 +60,6 @@ class MainListPlaceActivity : AppCompatActivity() {
     private fun setupBinding() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_list)
         binding.lifecycleOwner = this
-        viewModel = ViewModelProvider(this)[MainListPlaceViewModel::class.java]
         binding.listPlace = viewModel
     }
 

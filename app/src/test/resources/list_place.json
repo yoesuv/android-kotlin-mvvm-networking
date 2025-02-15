@@ -1,0 +1,26 @@
+{
+  "status_code": 200,
+  "data": [
+    {
+      "nama": "Alun Alun Malang",
+      "lokasi": "Kota Malang",
+      "deskripsi": "alun alun ini baru saja dipermak pada tahun 2015. yang sebelumnya terlihat semrawut sekarang menjadi lebih tertata.",
+      "thumbnail": "https://lh3.googleusercontent.com/-7To0y-nnYak/VqQYjBWAwoI/AAAAAAAACf8/r_sAJ-dgsL8/s250-Ic42/thumbnail_alun_alun_malang.jpg",
+      "gambar": "https://lh3.googleusercontent.com/-rTHiiW3vPMk/VqQXrbG5u6I/AAAAAAAACfs/buFhkMyTN98/s600-Ic42/alun_alun_malang.jpg"
+    },
+    {
+      "nama": "Alun alun Tugu",
+      "lokasi": "Kota Malang",
+      "deskripsi": "Di bagian tengah alun-alun ini terdapat sebuah tugu yang dikelilingi oleh kolam teratai. Alun-Alun Tugu/Bundar terletak di depan Balai Kota Malang.",
+      "thumbnail": "https://lh3.googleusercontent.com/-8WR-7K3f3xg/VqQYjZvb7-I/AAAAAAAACgA/Io4_UnWYIdo/s250-Ic42/thumbnail_alun_alun_tugu_malang.jpg",
+      "gambar": "https://lh3.googleusercontent.com/-f2jvOWu4sBE/VqQXZQlUhuI/AAAAAAAACfk/6EEOBSwgIFE/s600-Ic42/alun_alun_tugu_malang.jpg"
+    },
+    {
+      "nama": "Alun Alun Batu",
+      "lokasi": "Kota Batu",
+      "deskripsi": "Alun-alun Kota Batu menjadi destinasi wisata keluarga murah meriah. Alun-alun yang buka 24 jam ini punya konsep ramah anak. Lampion dan lampu berderet, patung-patung hewan tersebar di area taman. juga terdapat komidi putar bila ingin menikmati pemandangan dari ketinggian.",
+      "thumbnail": "https://lh3.googleusercontent.com/-R0ipuAxdPus/VpgqL1YRyRI/AAAAAAAACdI/XWkGUZpTegE/s250-Ic42/thumbnail_alun_alun_batu.jpg",
+      "gambar": "https://lh3.googleusercontent.com/-bFfINcFXjFM/VpgkzblyBhI/AAAAAAAACbg/r6z0tBnCBMY/s800-Ic42/alun_alun_batu.jpg"
+    }
+  ]
+}

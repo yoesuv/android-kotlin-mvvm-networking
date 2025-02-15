@@ -1,21 +1,23 @@
 package com.yoesuv.networkkotlin2.menu.gallery.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yoesuv.networkkotlin2.menu.gallery.models.GalleryModel
 import com.yoesuv.networkkotlin2.networks.GalleryRepository
 import com.yoesuv.networkkotlin2.networks.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
 /**
- *  Created by yusuf on 1/14/18.
+ *  Created by yusuf on 4 jan 2024.
  */
-class MainGalleryViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val galleryRepository = GalleryRepository()
+@HiltViewModel
+class MainGalleryViewModel @Inject constructor(
+    private val galleryRepository: GalleryRepository
+) : ViewModel() {
 
     var liveDataGallery: MutableLiveData<GalleryModel> = MutableLiveData()
     var liveLoading: MutableLiveData<Boolean> = MutableLiveData()

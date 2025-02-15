@@ -1,0 +1,20 @@
+{
+  "status_code": 200,
+  "data": [
+    {
+      "caption": "Alun alun kota Batu.",
+      "thumbnail": "https://lh3.googleusercontent.com/-d2w1AEOpt4s/Vq1x8fx4EDI/AAAAAAAACss/NAsAdPhkbLM/s250-Ic42/thumbnail_alun_alun_batu.jpg",
+      "image": "https://lh3.googleusercontent.com/-3UDPQ5U--g0/Vq1xAEOyNVI/AAAAAAAACsY/Rlaao9voS7Q/s720-Ic42/alun_alun_batu.jpg"
+    },
+    {
+      "caption": "Museum Tubuh Bagong Adventure.",
+      "thumbnail": "https://lh3.googleusercontent.com/-V605zVxxqnM/Vq1yBb4n9WI/AAAAAAAACs0/wCjlt-KKeJI/s250-Ic42/thumbnail_bagong_adventure.jpg",
+      "image": "https://lh3.googleusercontent.com/-49mnNU1J7bs/Vq1wZsmu8tI/AAAAAAAACsA/Q-Xfb-iSP3Y/s640-Ic42/bagong_adventure.jpg"
+    },
+    {
+      "caption": "Eco Green Park.",
+      "thumbnail": "https://lh3.googleusercontent.com/-wscEqXtqUi0/Vq1yEMlOEDI/AAAAAAAACs8/4JYPGASOvxg/s250-Ic42/thumbnail_eco_green_park.jpg",
+      "image": "https://lh3.googleusercontent.com/-8HbQmzQftzI/Vq1wZWTKJZI/AAAAAAAACr8/5VCdJI5dGXU/s720-Ic42/eco_green_park.jpg"
+    }
+  ]
+}

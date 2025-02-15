@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.jetbrainsKotlinKapt)
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
@@ -13,8 +14,8 @@ android {
         applicationId = "com.yoesuv.networkkotlin2"
         minSdk = 21
         targetSdk = 35
-        versionCode = 8
-        versionName = "2.1.5"
+        versionCode = 9
+        versionName = "2.1.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments["clearPackageData"] = "true"
@@ -68,12 +69,23 @@ android {
             resValue("string", "app_name", "Network Kotlin2 DEV")
             applicationIdSuffix = ".dev"
             dimension = "default"
+            isDefault = true
         }
         create("production") {
             resValue("string", "app_name", "Network Kotlin2")
             dimension = "default"
         }
     }
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+}
+
+kapt {
+    correctErrorTypes = true
 }
 
 dependencies {
@@ -84,9 +96,12 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.lifecycle)
+    implementation(libs.androidx.activity)
 
     implementation(libs.espresso.idling)
     testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
+    testImplementation(libs.core.testing)
     androidTestImplementation(libs.androidx.rules)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -102,4 +117,8 @@ dependencies {
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.okhttp)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.testing)
 }

@@ -1,21 +1,23 @@
 package com.yoesuv.networkkotlin2.menu.listplace.viewmodels
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.networks.ListPlaceRepository
 import com.yoesuv.networkkotlin2.networks.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
 /**
- *  Updated by yusuf on 11/28/19.
+ *  Updated by yusuf on 4 Jan 2025.
  */
-class MainListPlaceViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val listPlaceRepository = ListPlaceRepository()
+@HiltViewModel
+class MainListPlaceViewModel @Inject constructor(
+    private val listPlaceRepository: ListPlaceRepository,
+) : ViewModel() {
 
     var listData: MutableLiveData<ListPlaceModel> = MutableLiveData()
     var liveLoading: MutableLiveData<Boolean> = MutableLiveData(false)
