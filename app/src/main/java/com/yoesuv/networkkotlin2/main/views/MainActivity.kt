@@ -8,6 +8,7 @@ import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityMainBinding
 import com.yoesuv.networkkotlin2.main.viewmodels.MainViewModel
 import com.yoesuv.networkkotlin2.utils.handleEdgeToEdge
+import com.yoesuv.networkkotlin2.utils.hideStatusBar
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         setupToolbar()
 
         binding.root.handleEdgeToEdge()
+        hideStatusBar()
     }
 
     private fun setupBinding(){
