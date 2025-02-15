@@ -12,6 +12,7 @@ import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityGalleryBinding
 import com.yoesuv.networkkotlin2.menu.gallery.adapters.GalleryAdapter
 import com.yoesuv.networkkotlin2.menu.gallery.viewmodels.MainGalleryViewModel
+import com.yoesuv.networkkotlin2.utils.handleEdgeToEdge
 import com.yoesuv.networkkotlin2.utils.swipeColors
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,6 +40,8 @@ class MainGalleryActivity : AppCompatActivity() {
         setupToolbar()
         setupRecycler()
         setupSwipeRefresh()
+
+        binding.root.handleEdgeToEdge()
 
         viewModel.requestListGallery()
 

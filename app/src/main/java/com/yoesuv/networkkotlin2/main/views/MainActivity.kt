@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityMainBinding
 import com.yoesuv.networkkotlin2.main.viewmodels.MainViewModel
+import com.yoesuv.networkkotlin2.utils.handleEdgeToEdge
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
 
         setupBinding()
         setupToolbar()
+
+        binding.root.handleEdgeToEdge()
     }
 
     private fun setupBinding(){

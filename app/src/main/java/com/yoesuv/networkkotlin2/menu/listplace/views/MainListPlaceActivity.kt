@@ -12,6 +12,7 @@ import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityListBinding
 import com.yoesuv.networkkotlin2.menu.listplace.adapters.ListPlaceAdapter
 import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.MainListPlaceViewModel
+import com.yoesuv.networkkotlin2.utils.handleEdgeToEdge
 import com.yoesuv.networkkotlin2.utils.swipeColors
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,6 +40,8 @@ class MainListPlaceActivity : AppCompatActivity() {
         setupToolbar()
         setupRecycler()
         setupSwipeRefresh()
+
+        binding.root.handleEdgeToEdge()
 
         viewModel.requestListPlace()
 
