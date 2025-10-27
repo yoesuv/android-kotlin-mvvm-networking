@@ -98,7 +98,7 @@ dependencies {
     implementation(libs.androidx.lifecycle)
     implementation(libs.androidx.activity)
 
-    implementation(libs.espresso.idling)
+    androidTestImplementation(libs.espresso.idling)
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
     testImplementation(libs.core.testing)
