@@ -8,18 +8,18 @@ plugins {
 android {
 
     namespace = "com.yoesuv.networkkotlin2"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.yoesuv.networkkotlin2"
         minSdk = 21
-        targetSdk = 35
-        versionCode = 9
-        versionName = "2.1.6"
+        targetSdk = 36
+        versionCode = 10
+        versionName = "2.1.7"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments["clearPackageData"] = "true"
-        setProperty("archivesBaseName", "$applicationId-v$versionCode($versionName)")
+        setProperty("archivesBaseName", "$applicationId-v$versionName")
     }
 
     buildTypes {
