@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.yoesuv.networkkotlin2"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 36
         versionCode = 10
         versionName = "2.1.7"
