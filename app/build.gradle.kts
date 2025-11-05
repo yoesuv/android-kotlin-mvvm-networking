@@ -8,12 +8,12 @@ plugins {
 android {
 
     namespace = "com.yoesuv.networkkotlin2"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.yoesuv.networkkotlin2"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 35
         versionCode = 10
         versionName = "2.1.7"
 
@@ -98,7 +98,7 @@ dependencies {
     implementation(libs.androidx.lifecycle)
     implementation(libs.androidx.activity)
 
-    androidTestImplementation(libs.espresso.idling)
+    implementation(libs.espresso.idling)
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
     testImplementation(libs.core.testing)
