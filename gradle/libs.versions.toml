@@ -1,6 +1,7 @@
 [versions]
 agp = "8.7.3"
 kotlin = "1.9.24"
+ksp = "1.9.24-1.0.20"
 coreKtx = "1.15.0"
 activity = "1.9.3"
 junit = "4.13.2"
@@ -54,4 +55,5 @@ robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectr
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrainsKotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }

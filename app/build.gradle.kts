@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.jetbrainsKotlinKapt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.hiltAndroid)
 }
 
@@ -119,6 +120,6 @@ dependencies {
     implementation(libs.ktor.client.okhttp)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     implementation(libs.hilt.testing)
 }
