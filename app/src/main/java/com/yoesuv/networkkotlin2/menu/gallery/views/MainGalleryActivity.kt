@@ -13,7 +13,6 @@ import com.yoesuv.networkkotlin2.databinding.ActivityGalleryBinding
 import com.yoesuv.networkkotlin2.menu.gallery.adapters.GalleryAdapter
 import com.yoesuv.networkkotlin2.menu.gallery.viewmodels.MainGalleryViewModel
 import com.yoesuv.networkkotlin2.utils.handleEdgeToEdge
-import com.yoesuv.networkkotlin2.utils.hideStatusBar
 import com.yoesuv.networkkotlin2.utils.swipeColors
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -43,7 +42,6 @@ class MainGalleryActivity : AppCompatActivity() {
         setupSwipeRefresh()
 
         binding.root.handleEdgeToEdge()
-        hideStatusBar()
 
         viewModel.requestListGallery()
 
