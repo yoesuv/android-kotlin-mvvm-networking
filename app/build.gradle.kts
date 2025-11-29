@@ -18,7 +18,7 @@ android {
         versionCode = 10
         versionName = "2.1.7"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.yoesuv.networkkotlin2.HiltTestRunner"
         testInstrumentationRunnerArguments["clearPackageData"] = "true"
         setProperty("archivesBaseName", "$applicationId-v$versionName")
     }
@@ -121,5 +121,6 @@ dependencies {
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-    implementation(libs.hilt.testing)
+    androidTestImplementation(libs.hilt.testing)
+    kspAndroidTest(libs.hilt.compiler)
 }
