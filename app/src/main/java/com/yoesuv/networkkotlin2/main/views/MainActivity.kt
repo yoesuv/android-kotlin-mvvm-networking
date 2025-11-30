@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
             top = true,
             color = ContextCompat.getColor(this, R.color.colorPrimary)
         )
+        binding.clMain.insetsPadding(bottom = true)
     }
 
     private fun setupBinding() {
