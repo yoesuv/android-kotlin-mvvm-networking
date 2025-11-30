@@ -7,13 +7,14 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import android.view.MenuItem
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityGalleryBinding
 import com.yoesuv.networkkotlin2.menu.gallery.adapters.GalleryAdapter
 import com.yoesuv.networkkotlin2.menu.gallery.viewmodels.MainGalleryViewModel
-import com.yoesuv.networkkotlin2.utils.handleEdgeToEdge
-import com.yoesuv.networkkotlin2.utils.hideStatusBar
+import com.yoesuv.networkkotlin2.utils.insetsPadding
 import com.yoesuv.networkkotlin2.utils.swipeColors
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,8 +43,12 @@ class MainGalleryActivity : AppCompatActivity() {
         setupRecycler()
         setupSwipeRefresh()
 
-        binding.root.handleEdgeToEdge()
-        hideStatusBar()
+        enableEdgeToEdge()
+        binding.layoutGallery.insetsPadding(
+            top = true,
+            color = ContextCompat.getColor(this, R.color.colorPrimary)
+        )
+        binding.recyclerviewGallery.insetsPadding(bottom = true)
 
         viewModel.requestListGallery()
 

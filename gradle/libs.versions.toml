@@ -1,24 +1,25 @@
 [versions]
-agp = "8.7.3"
-kotlin = "1.9.24"
-coreKtx = "1.15.0"
-activity = "1.9.3"
+agp = "8.13.0"
+kotlin = "2.2.10"
+ksp = "2.2.10-2.0.2"
+coreKtx = "1.17.0"
+activity = "1.11.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 rules = "1.6.1"
 idlingResources = "3.0.2"
 uiAutomator = "2.3.0"
-appcompat = "1.7.0"
-material = "1.12.0"
-constraintlayout = "2.2.0"
-viewModelKtx = "2.8.7"
-coil = "3.0.4"
+appcompat = "1.7.1"
+material = "1.13.0"
+constraintlayout = "2.2.1"
+viewModelKtx = "2.9.4"
+coil = "3.3.0"
 swiperefreshlayout = "1.1.0"
-gson = "2.11.0"
-ktorClient = "3.0.1"
-hiltAndroid = "2.51.1"
-robolectric = "4.14"
+gson = "2.13.2"
+ktorClient = "3.3.2"
+hiltAndroid = "2.57.1"
+robolectric = "4.16"
 coreTesting = "2.2.0"
 
 [libraries]
@@ -54,5 +55,5 @@ robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectr
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrainsKotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
-

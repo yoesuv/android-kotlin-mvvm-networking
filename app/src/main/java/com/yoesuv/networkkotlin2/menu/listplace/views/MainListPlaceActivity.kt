@@ -6,14 +6,15 @@ import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityListBinding
 import com.yoesuv.networkkotlin2.menu.listplace.adapters.ListPlaceAdapter
 import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.MainListPlaceViewModel
-import com.yoesuv.networkkotlin2.utils.handleEdgeToEdge
-import com.yoesuv.networkkotlin2.utils.hideStatusBar
+import com.yoesuv.networkkotlin2.utils.insetsPadding
 import com.yoesuv.networkkotlin2.utils.swipeColors
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,8 +43,12 @@ class MainListPlaceActivity : AppCompatActivity() {
         setupRecycler()
         setupSwipeRefresh()
 
-        binding.root.handleEdgeToEdge()
-        hideStatusBar()
+        enableEdgeToEdge()
+        binding.layoutList.insetsPadding(
+            top = true,
+            color = ContextCompat.getColor(this, R.color.colorPrimary)
+        )
+        binding.recyclerviewListPlace.insetsPadding(bottom = true)
 
         viewModel.requestListPlace()
 

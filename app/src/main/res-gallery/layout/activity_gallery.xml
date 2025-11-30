@@ -23,12 +23,14 @@
             android:id="@+id/swipeRefreshGallery"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/grey_100"
             app:setIsRefreshing="@{gallery.liveLoading}">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerviewGallery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clipToPadding="false"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:spanCount="3"
                 tools:listitem="@layout/item_gallery"

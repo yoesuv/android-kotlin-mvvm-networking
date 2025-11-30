@@ -2,24 +2,25 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.jetbrainsKotlinKapt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.hiltAndroid)
 }
 
 android {
 
     namespace = "com.yoesuv.networkkotlin2"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.yoesuv.networkkotlin2"
-        minSdk = 21
-        targetSdk = 35
-        versionCode = 9
-        versionName = "2.1.6"
+        minSdk = 24
+        targetSdk = 36
+        versionCode = 10
+        versionName = "2.1.7"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.yoesuv.networkkotlin2.HiltTestRunner"
         testInstrumentationRunnerArguments["clearPackageData"] = "true"
-        setProperty("archivesBaseName", "$applicationId-v$versionCode($versionName)")
+        setProperty("archivesBaseName", "$applicationId-v$versionName")
     }
 
     buildTypes {
@@ -119,6 +120,7 @@ dependencies {
     implementation(libs.ktor.client.okhttp)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-    implementation(libs.hilt.testing)
+    ksp(libs.hilt.compiler)
+    androidTestImplementation(libs.hilt.testing)
+    kspAndroidTest(libs.hilt.compiler)
 }
