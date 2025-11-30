@@ -48,6 +48,7 @@ class MainListPlaceActivity : AppCompatActivity() {
             top = true,
             color = ContextCompat.getColor(this, R.color.colorPrimary)
         )
+        binding.recyclerviewListPlace.insetsPadding(bottom = true)
 
         viewModel.requestListPlace()
 

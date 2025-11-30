@@ -48,6 +48,7 @@ class MainGalleryActivity : AppCompatActivity() {
             top = true,
             color = ContextCompat.getColor(this, R.color.colorPrimary)
         )
+        binding.recyclerviewGallery.insetsPadding(bottom = true)
 
         viewModel.requestListGallery()
 

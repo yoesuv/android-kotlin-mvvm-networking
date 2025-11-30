@@ -28,7 +28,7 @@ internal fun View.insetsPadding(
                 if (right) bars.right else v.paddingRight,
                 if (bottom) bars.bottom + 32 else v.paddingBottom
             )
-            WindowInsetsCompat.CONSUMED
+            insets
         }
     }
 }
