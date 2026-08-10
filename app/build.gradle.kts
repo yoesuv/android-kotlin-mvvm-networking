@@ -1,7 +1,5 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.jetbrainsKotlinKapt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hiltAndroid)
 }
@@ -9,7 +7,11 @@ plugins {
 android {
 
     namespace = "com.yoesuv.networkkotlin2"
-    compileSdk = 36
+    compileSdk {
+        version = release(36) {
+            minorApiLevel = 1
+        }
+    }
 
     defaultConfig {
         applicationId = "com.yoesuv.networkkotlin2"
@@ -20,7 +22,6 @@ android {
 
         testInstrumentationRunner = "com.yoesuv.networkkotlin2.HiltTestRunner"
         testInstrumentationRunnerArguments["clearPackageData"] = "true"
-        setProperty("archivesBaseName", "$applicationId-v$versionName")
     }
 
     buildTypes {
@@ -42,9 +43,13 @@ android {
 
     sourceSets {
         getByName("main") {
-            res.srcDirs("src/main/res")
-            res.srcDirs("src/main/res-gallery")
-            res.srcDirs("src/main/res-list-place")
+            res.directories.addAll(
+                listOf(
+                    "src/main/res",
+                    "src/main/res-gallery",
+                    "src/main/res-list-place"
+                )
+            )
         }
     }
 
@@ -52,12 +57,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
     buildFeatures {
         dataBinding = true
         buildConfig = true
+        resValues = true
     }
     flavorDimensions.add("default")
     productFlavors {
@@ -83,10 +86,6 @@ android {
             isIncludeAndroidResources = true
         }
     }
-}
-
-kapt {
-    correctErrorTypes = true
 }
 
 dependencies {
