@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="gallery"
-            type="com.yoesuv.networkkotlin2.menu.gallery.viewmodels.ItemGalleryViewModel"/>
+            type="com.yoesuv.networkkotlin2.menu.gallery.viewmodels.ItemGalleryViewModel" />
     </data>
 
     <RelativeLayout
@@ -21,7 +22,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             app:loadImage="@{gallery.imageUrl}"
-            tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     </RelativeLayout>
 
