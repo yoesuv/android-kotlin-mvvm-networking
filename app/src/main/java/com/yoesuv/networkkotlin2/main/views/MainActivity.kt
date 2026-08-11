@@ -18,10 +18,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        enableEdgeToEdge()
         setupBinding()
         setupToolbar()
 
-        enableEdgeToEdge()
         binding.llMain.insetsPadding(
             top = true,
             color = ContextCompat.getColor(this, R.color.colorPrimary),

@@ -2,11 +2,19 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hiltAndroid)
+    base
+}
+
+val appApplicationId = "com.yoesuv.networkkotlin2"
+val appVersionName = "2.1.8"
+
+base {
+    archivesName = "$appApplicationId-v$appVersionName"
 }
 
 android {
 
-    namespace = "com.yoesuv.networkkotlin2"
+    namespace = appApplicationId
     compileSdk {
         version =
             release(36) {
@@ -15,11 +23,11 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.yoesuv.networkkotlin2"
+        applicationId = appApplicationId
         minSdk = 24
         targetSdk = 36
         versionCode = 10
-        versionName = "2.1.7"
+        versionName = appVersionName
 
         testInstrumentationRunner = "com.yoesuv.networkkotlin2.HiltTestRunner"
         testInstrumentationRunnerArguments["clearPackageData"] = "true"
@@ -35,6 +43,7 @@ android {
         }
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
