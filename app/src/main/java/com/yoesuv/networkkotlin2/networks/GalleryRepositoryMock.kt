@@ -5,9 +5,9 @@ import com.yoesuv.networkkotlin2.utils.JsonParser
 import kotlinx.coroutines.flow.flow
 
 class GalleryRepositoryMock : GalleryRepository {
-
-    override fun getListGallery() = flow<Resource<GalleryModel>> {
-        val result = JsonParser.stringToObject("gallery.json", GalleryModel::class.java)
-        emit(Resource.Success(result))
-    }
+    override fun getListGallery() =
+        flow<Resource<GalleryModel>> {
+            val result = JsonParser.stringToObject("gallery.json", GalleryModel::class.java)
+            emit(Resource.Success(result))
+        }
 }

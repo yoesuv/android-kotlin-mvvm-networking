@@ -7,8 +7,9 @@ import com.yoesuv.networkkotlin2.databinding.ItemPlaceBinding
 import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.ItemPlaceViewModel
 
-class PlaceViewHolder(val binding: ItemPlaceBinding) : RecyclerView.ViewHolder(binding.root) {
-
+class PlaceViewHolder(
+    val binding: ItemPlaceBinding,
+) : RecyclerView.ViewHolder(binding.root) {
     fun bind(place: ListPlaceModel.Place) {
         binding.place = ItemPlaceViewModel(place)
         binding.executePendingBindings()

@@ -9,31 +9,31 @@ import io.ktor.client.request.get
 import io.ktor.http.encodedPath
 import kotlinx.coroutines.flow.flow
 
-class ListPlaceRepositoryImpl: ListPlaceRepository {
-
-    override fun getListPlace() = flow<Resource<ListPlaceModel>> {
-        try {
-            if (forTest()) IdlingResource.increment()
-            emit(Resource.Loading())
-            val result = client.get {
-                url {
-                    encodedPath = EndPoint.LIST_PLACE
+class ListPlaceRepositoryImpl : ListPlaceRepository {
+    override fun getListPlace() =
+        flow<Resource<ListPlaceModel>> {
+            try {
+                if (forTest()) IdlingResource.increment()
+                emit(Resource.Loading())
+                val result =
+                    client.get {
+                        url {
+                            encodedPath = EndPoint.LIST_PLACE
+                        }
+                    }
+                if (forTest()) {
+                    if (!IdlingResource.idlingresource.isIdleNow) {
+                        IdlingResource.decrement()
+                    }
                 }
-            }
-            if (forTest()) {
-                if (!IdlingResource.idlingresource.isIdleNow) {
-                    IdlingResource.decrement()
+                emit(Resource.Success(result.body()))
+            } catch (e: Exception) {
+                if (forTest()) {
+                    if (!IdlingResource.idlingresource.isIdleNow) {
+                        IdlingResource.decrement()
+                    }
                 }
+                emit(Resource.Error("Failed get list place", e))
             }
-            emit(Resource.Success(result.body()))
-        } catch (e: Exception) {
-            if (forTest()) {
-                if (!IdlingResource.idlingresource.isIdleNow) {
-                    IdlingResource.decrement()
-                }
-            }
-            emit(Resource.Error("Failed get list place", e))
         }
-    }
-
 }

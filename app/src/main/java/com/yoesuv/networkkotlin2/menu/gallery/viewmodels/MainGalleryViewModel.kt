@@ -15,30 +15,32 @@ import javax.inject.Inject
  *  Created by yusuf on 4 jan 2024.
  */
 @HiltViewModel
-class MainGalleryViewModel @Inject constructor(
-    private val galleryRepository: GalleryRepository
-) : ViewModel() {
+class MainGalleryViewModel
+    @Inject
+    constructor(
+        private val galleryRepository: GalleryRepository,
+    ) : ViewModel() {
+        var liveDataGallery: MutableLiveData<GalleryModel> = MutableLiveData()
+        var liveLoading: MutableLiveData<Boolean> = MutableLiveData()
 
-    var liveDataGallery: MutableLiveData<GalleryModel> = MutableLiveData()
-    var liveLoading: MutableLiveData<Boolean> = MutableLiveData()
+        fun requestListGallery() {
+            galleryRepository
+                .getListGallery()
+                .onEach { res ->
+                    when (res) {
+                        is Resource.Loading -> {
+                            liveLoading.postValue(true)
+                        }
 
-    fun requestListGallery() {
-        galleryRepository.getListGallery().onEach { res ->
-            when (res) {
-                is Resource.Loading -> {
-                    liveLoading.postValue(true)
-                }
+                        is Resource.Success -> {
+                            liveLoading.postValue(false)
+                            liveDataGallery.postValue(res.data)
+                        }
 
-                is Resource.Success -> {
-                    liveLoading.postValue(false)
-                    liveDataGallery.postValue(res.data)
-                }
-
-                is Resource.Error -> {
-                    liveLoading.postValue(false)
-                }
-            }
-        }.launchIn(viewModelScope)
+                        is Resource.Error -> {
+                            liveLoading.postValue(false)
+                        }
+                    }
+                }.launchIn(viewModelScope)
+        }
     }
-
-}

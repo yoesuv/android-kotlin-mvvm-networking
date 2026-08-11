@@ -14,7 +14,6 @@ import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
 class GalleryUnitTest {
-
     @get:Rule
     val instantTaskExecutor = InstantTaskExecutorRule()
 
@@ -22,9 +21,10 @@ class GalleryUnitTest {
 
     @Before
     fun setUp() {
-        viewModel = MainGalleryViewModel(
-            galleryRepository = GalleryRepositoryMock()
-        )
+        viewModel =
+            MainGalleryViewModel(
+                galleryRepository = GalleryRepositoryMock(),
+            )
     }
 
     @Test
@@ -39,5 +39,4 @@ class GalleryUnitTest {
         val result = viewModel.liveDataGallery.getOrAwaitValue()
         assertEquals(3, result?.listData?.size)
     }
-
 }

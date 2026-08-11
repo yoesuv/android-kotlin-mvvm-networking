@@ -13,17 +13,11 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+    @Provides
+    @Singleton
+    fun provideListPlaceRepository(): ListPlaceRepository = ListPlaceRepositoryImpl()
 
     @Provides
     @Singleton
-    fun provideListPlaceRepository(): ListPlaceRepository {
-        return ListPlaceRepositoryImpl()
-    }
-
-    @Provides
-    @Singleton
-    fun provideGalleryRepository() : GalleryRepository {
-        return GalleryRepositoryImpl()
-    }
-
+    fun provideGalleryRepository(): GalleryRepository = GalleryRepositoryImpl()
 }

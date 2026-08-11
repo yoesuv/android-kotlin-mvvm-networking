@@ -2,13 +2,13 @@ package com.yoesuv.networkkotlin2.menu.listplace.views
 
 import android.content.Context
 import android.content.Intent
-import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityListBinding
@@ -23,11 +23,8 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class MainListPlaceActivity : AppCompatActivity() {
-
     companion object {
-        fun getInstance(context: Context): Intent {
-            return Intent(context, MainListPlaceActivity::class.java)
-        }
+        fun getInstance(context: Context): Intent = Intent(context, MainListPlaceActivity::class.java)
     }
 
     private lateinit var binding: ActivityListBinding
@@ -46,7 +43,7 @@ class MainListPlaceActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding.layoutList.insetsPadding(
             top = true,
-            color = ContextCompat.getColor(this, R.color.colorPrimary)
+            color = ContextCompat.getColor(this, R.color.colorPrimary),
         )
         binding.recyclerviewListPlace.insetsPadding(bottom = true)
 
@@ -94,5 +91,4 @@ class MainListPlaceActivity : AppCompatActivity() {
             listPlaceAdapter.submitList(listPlace.data)
         }
     }
-
 }

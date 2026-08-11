@@ -1,10 +1,10 @@
 package com.yoesuv.networkkotlin2.main.views
 
-import androidx.databinding.DataBindingUtil
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityMainBinding
@@ -12,7 +12,6 @@ import com.yoesuv.networkkotlin2.main.viewmodels.MainViewModel
 import com.yoesuv.networkkotlin2.utils.insetsPadding
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
 
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding.llMain.insetsPadding(
             top = true,
-            color = ContextCompat.getColor(this, R.color.colorPrimary)
+            color = ContextCompat.getColor(this, R.color.colorPrimary),
         )
         binding.clMain.insetsPadding(bottom = true)
     }

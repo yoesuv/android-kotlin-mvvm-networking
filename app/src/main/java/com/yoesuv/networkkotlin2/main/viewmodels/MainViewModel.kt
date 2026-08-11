@@ -6,8 +6,9 @@ import androidx.lifecycle.AndroidViewModel
 import com.yoesuv.networkkotlin2.menu.gallery.views.MainGalleryActivity
 import com.yoesuv.networkkotlin2.menu.listplace.views.MainListPlaceActivity
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
-
+class MainViewModel(
+    application: Application,
+) : AndroidViewModel(application) {
     fun clickListPlace(view: View) {
         val ctx = view.context
         ctx.startActivity(MainListPlaceActivity.getInstance(ctx))

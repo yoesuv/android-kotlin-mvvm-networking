@@ -19,14 +19,15 @@ internal fun View.insetsPadding(
             if (color != null) {
                 v.setBackgroundColor(color)
             }
-            val bars = insets.getInsets(
-                WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout(),
-            )
+            val bars =
+                insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout(),
+                )
             v.updatePadding(
                 if (left) bars.left else v.paddingLeft,
                 if (top) bars.top else v.paddingTop,
                 if (right) bars.right else v.paddingRight,
-                if (bottom) bars.bottom + 32 else v.paddingBottom
+                if (bottom) bars.bottom + 32 else v.paddingBottom,
             )
             insets
         }

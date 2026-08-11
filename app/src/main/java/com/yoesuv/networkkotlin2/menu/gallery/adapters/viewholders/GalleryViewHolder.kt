@@ -7,8 +7,9 @@ import com.yoesuv.networkkotlin2.databinding.ItemGalleryBinding
 import com.yoesuv.networkkotlin2.menu.gallery.models.GalleryModel
 import com.yoesuv.networkkotlin2.menu.gallery.viewmodels.ItemGalleryViewModel
 
-class GalleryViewHolder(val binding: ItemGalleryBinding) : RecyclerView.ViewHolder(binding.root) {
-
+class GalleryViewHolder(
+    val binding: ItemGalleryBinding,
+) : RecyclerView.ViewHolder(binding.root) {
     fun bind(gallery: GalleryModel.Gallery) {
         binding.gallery = ItemGalleryViewModel(gallery)
         binding.executePendingBindings()

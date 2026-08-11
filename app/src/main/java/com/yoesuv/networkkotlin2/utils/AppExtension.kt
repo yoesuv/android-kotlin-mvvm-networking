@@ -20,15 +20,11 @@ fun logError(message: String) {
     }
 }
 
-fun forTest(): Boolean {
-    return BuildConfig.FLAVOR.equals("forTest", true)
-}
-
+fun forTest(): Boolean = BuildConfig.FLAVOR.equals("forTest", true)
 
 @ColorInt
-fun Context.swipeColors(): IntArray {
-    return intArrayOf(
+fun Context.swipeColors(): IntArray =
+    intArrayOf(
         ContextCompat.getColor(this, R.color.colorPrimary),
         ContextCompat.getColor(this, R.color.colorPrimaryDark),
     )
-}

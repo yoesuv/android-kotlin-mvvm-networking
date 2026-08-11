@@ -2,14 +2,14 @@ package com.yoesuv.networkkotlin2.menu.gallery.views
 
 import android.content.Context
 import android.content.Intent
-import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import com.yoesuv.networkkotlin2.R
 import com.yoesuv.networkkotlin2.databinding.ActivityGalleryBinding
 import com.yoesuv.networkkotlin2.menu.gallery.adapters.GalleryAdapter
@@ -23,11 +23,8 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class MainGalleryActivity : AppCompatActivity() {
-
     companion object {
-        fun getInstance(context: Context): Intent {
-            return Intent(context, MainGalleryActivity::class.java)
-        }
+        fun getInstance(context: Context): Intent = Intent(context, MainGalleryActivity::class.java)
     }
 
     private lateinit var binding: ActivityGalleryBinding
@@ -46,7 +43,7 @@ class MainGalleryActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding.layoutGallery.insetsPadding(
             top = true,
-            color = ContextCompat.getColor(this, R.color.colorPrimary)
+            color = ContextCompat.getColor(this, R.color.colorPrimary),
         )
         binding.recyclerviewGallery.insetsPadding(bottom = true)
 
@@ -94,5 +91,4 @@ class MainGalleryActivity : AppCompatActivity() {
             adapter.submitList(galleryModel.listData)
         }
     }
-
 }

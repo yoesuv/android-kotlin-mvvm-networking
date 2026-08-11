@@ -8,9 +8,10 @@ android {
 
     namespace = "com.yoesuv.networkkotlin2"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version =
+            release(36) {
+                minorApiLevel = 1
+            }
     }
 
     defaultConfig {
@@ -29,14 +30,14 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
         release {
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -47,8 +48,8 @@ android {
                 listOf(
                     "src/main/res",
                     "src/main/res-gallery",
-                    "src/main/res-list-place"
-                )
+                    "src/main/res-list-place",
+                ),
             )
         }
     }

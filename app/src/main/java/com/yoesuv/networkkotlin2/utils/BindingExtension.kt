@@ -14,13 +14,15 @@ import com.yoesuv.networkkotlin2.R
 
 fun AppCompatImageView.loadImage(imageUrl: ObservableField<String?>) {
     val imageLoader = ImageLoader(this.context)
-    val request = ImageRequest.Builder(this.context)
-        .data(imageUrl.get())
-        .crossfade(true)
-        .placeholder(R.drawable.placeholder_image)
-        .error(R.drawable.placeholder_error)
-        .target(this)
-        .build()
+    val request =
+        ImageRequest
+            .Builder(this.context)
+            .data(imageUrl.get())
+            .crossfade(true)
+            .placeholder(R.drawable.placeholder_image)
+            .error(R.drawable.placeholder_error)
+            .target(this)
+            .build()
     imageLoader.enqueue(request)
 }
 
