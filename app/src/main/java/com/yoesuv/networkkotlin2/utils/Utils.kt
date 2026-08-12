@@ -1,6 +1,5 @@
 package com.yoesuv.networkkotlin2.utils
 
-import android.os.Build
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.core.view.ViewCompat
@@ -14,21 +13,28 @@ internal fun View.insetsPadding(
     bottom: Boolean = false,
     @ColorInt color: Int? = null,
 ) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
-        ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
-            if (color != null) {
-                v.setBackgroundColor(color)
-            }
-            val bars = insets.getInsets(
+    val initialPadding =
+        intArrayOf(
+            paddingLeft,
+            paddingTop,
+            paddingRight,
+            paddingBottom,
+        )
+
+    ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
+        if (color != null) {
+            v.setBackgroundColor(color)
+        }
+        val bars =
+            insets.getInsets(
                 WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout(),
             )
-            v.updatePadding(
-                if (left) bars.left else v.paddingLeft,
-                if (top) bars.top else v.paddingTop,
-                if (right) bars.right else v.paddingRight,
-                if (bottom) bars.bottom + 32 else v.paddingBottom
-            )
-            insets
-        }
+        v.updatePadding(
+            initialPadding[0] + if (left) bars.left else 0,
+            initialPadding[1] + if (top) bars.top else 0,
+            initialPadding[2] + if (right) bars.right else 0,
+            initialPadding[3] + if (bottom) bars.bottom else 0,
+        )
+        insets
     }
 }

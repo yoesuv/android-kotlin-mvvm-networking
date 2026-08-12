@@ -5,11 +5,10 @@ import com.yoesuv.networkkotlin2.menu.listplace.models.ListPlaceModel
 import com.yoesuv.networkkotlin2.menu.listplace.viewmodels.MainListPlaceViewModel
 import com.yoesuv.networkkotlin2.networks.ListPlaceRepositoryMock
 import com.yoesuv.networkkotlin2.utils.JsonParser
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
@@ -20,7 +19,6 @@ import org.robolectric.RobolectricTestRunner
  */
 @RunWith(RobolectricTestRunner::class)
 class ListPlaceUnitTest {
-
     @get:Rule
     val instantTaskExecutor = InstantTaskExecutorRule()
 
@@ -28,9 +26,10 @@ class ListPlaceUnitTest {
 
     @Before
     fun setup() {
-        viewModel = MainListPlaceViewModel(
-            listPlaceRepository = ListPlaceRepositoryMock()
-        )
+        viewModel =
+            MainListPlaceViewModel(
+                listPlaceRepository = ListPlaceRepositoryMock(),
+            )
     }
 
     @Test
@@ -45,5 +44,4 @@ class ListPlaceUnitTest {
         val result = viewModel.listData.getOrAwaitValue()
         assertEquals(3, result?.data?.size)
     }
-
 }

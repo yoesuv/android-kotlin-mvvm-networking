@@ -15,30 +15,32 @@ import javax.inject.Inject
  *  Updated by yusuf on 4 Jan 2025.
  */
 @HiltViewModel
-class MainListPlaceViewModel @Inject constructor(
-    private val listPlaceRepository: ListPlaceRepository,
-) : ViewModel() {
+class MainListPlaceViewModel
+    @Inject
+    constructor(
+        private val listPlaceRepository: ListPlaceRepository,
+    ) : ViewModel() {
+        var listData: MutableLiveData<ListPlaceModel> = MutableLiveData()
+        var liveLoading: MutableLiveData<Boolean> = MutableLiveData(false)
 
-    var listData: MutableLiveData<ListPlaceModel> = MutableLiveData()
-    var liveLoading: MutableLiveData<Boolean> = MutableLiveData(false)
+        fun requestListPlace() {
+            listPlaceRepository
+                .getListPlace()
+                .onEach { res ->
+                    when (res) {
+                        is Resource.Loading -> {
+                            liveLoading.postValue(true)
+                        }
 
-    fun requestListPlace() {
-        listPlaceRepository.getListPlace().onEach { res ->
-            when (res) {
-                is Resource.Loading -> {
-                    liveLoading.postValue(true)
-                }
+                        is Resource.Success -> {
+                            liveLoading.postValue(false)
+                            listData.postValue(res.data)
+                        }
 
-                is Resource.Success -> {
-                    liveLoading.postValue(false)
-                    listData.postValue(res.data)
-                }
-
-                is Resource.Error -> {
-                    liveLoading.postValue(false)
-                }
-            }
-        }.launchIn(viewModelScope)
+                        is Resource.Error -> {
+                            liveLoading.postValue(false)
+                        }
+                    }
+                }.launchIn(viewModelScope)
+        }
     }
-
-}

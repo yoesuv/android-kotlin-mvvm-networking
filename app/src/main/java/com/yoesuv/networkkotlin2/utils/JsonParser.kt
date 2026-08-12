@@ -3,8 +3,10 @@ package com.yoesuv.networkkotlin2.utils
 import com.google.gson.Gson
 
 object JsonParser {
-
-    fun <T> stringToObject(fileName: String, obj: Class<T>): T {
+    fun <T> stringToObject(
+        fileName: String,
+        obj: Class<T>,
+    ): T {
         val iStream = this.javaClass.classLoader?.getResourceAsStream(fileName)
         val size = iStream?.available()
         val buffer = ByteArray(size ?: 0)
@@ -13,5 +15,4 @@ object JsonParser {
         val json = String(buffer, charset = Charsets.UTF_8)
         return Gson().fromJson(json, obj)
     }
-
 }

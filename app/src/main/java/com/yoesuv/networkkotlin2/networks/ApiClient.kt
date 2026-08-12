@@ -15,32 +15,34 @@ import io.ktor.http.takeFrom
 import io.ktor.serialization.gson.GsonConverter
 import io.ktor.serialization.gson.gson
 
-val client = HttpClient {
-    defaultRequest {
-        url {
-            takeFrom(AppData.BASE_URL)
+val client =
+    HttpClient {
+        defaultRequest {
+            url {
+                takeFrom(AppData.BASE_URL)
+            }
         }
-    }
-    expectSuccess = true
-    install(HttpTimeout) {
-        val timeout = 30000L
-        connectTimeoutMillis = timeout
-        requestTimeoutMillis = timeout
-        socketTimeoutMillis = timeout
-    }
-    install(Logging) {
-        logger = Logger.DEFAULT
-        level = LogLevel.ALL
-        logger = object : Logger {
-            override fun log(message: String) {
-                println(message)
+        expectSuccess = true
+        install(HttpTimeout) {
+            val timeout = 30000L
+            connectTimeoutMillis = timeout
+            requestTimeoutMillis = timeout
+            socketTimeoutMillis = timeout
+        }
+        install(Logging) {
+            logger = Logger.DEFAULT
+            level = LogLevel.ALL
+            logger =
+                object : Logger {
+                    override fun log(message: String) {
+                        println(message)
+                    }
+                }
+        }
+        install(ContentNegotiation) {
+            register(ContentType.Text.Any, GsonConverter(GsonBuilder().create()))
+            gson {
+                setPrettyPrinting()
             }
         }
     }
-    install(ContentNegotiation) {
-        register(ContentType.Text.Any, GsonConverter(GsonBuilder().create()))
-        gson {
-            setPrettyPrinting()
-        }
-    }
-}

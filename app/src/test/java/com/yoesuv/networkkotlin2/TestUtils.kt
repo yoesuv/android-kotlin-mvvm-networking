@@ -8,13 +8,14 @@ import java.util.concurrent.TimeUnit
 fun <T> LiveData<T>.getOrAwaitValue(): T? {
     val data = arrayOfNulls<Any>(1)
     val latch = CountDownLatch(1)
-    val observer: Observer<T> = object : Observer<T> {
-        override fun onChanged(value: T) {
-            data[0] = value
-            latch.countDown()
-            removeObserver(this)
+    val observer: Observer<T> =
+        object : Observer<T> {
+            override fun onChanged(value: T) {
+                data[0] = value
+                latch.countDown()
+                removeObserver(this)
+            }
         }
-    }
     observeForever(observer)
     latch.await(2, TimeUnit.SECONDS)
     @Suppress("UNCHECKED_CAST")

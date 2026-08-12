@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+.commandcode
+.idea/deploymentTargetSelector.xml
+.idea/appInsightsSettings.xml
+.idea/AndroidProjectSystem.xml
